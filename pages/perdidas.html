@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acaestoy - Mascotas perdidas</title>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="../estilos.css">
+  </head>
+  <body>
+    <header>
+      <div id="logo">
+        <img src="../assets/logoheader.png" alt="Logo de Acaestoy">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">Animales perdidos</a></li>
+          <li><a href="#">Animales encontrados</a></li>
+          <li><a href="#">¿Cómo funciona acaestoy?</a></li>
+        </ul>
+      </nav>
+    </header>
+<!-- Sección "Mascotas perdidas" -->
+<section>
+    <h2>Mascotas perdidas</h2>
+<form id="formulario">
+  <label for="tipo">Tipo:</label>
+  <select id="tipo">
+    <option value=""></option>
+    <option value="Perro">Perro</option>
+    <option value="Gato">Gato</option>
+  </select>
+  <br>
+  <label for="pelaje">Pelaje:</label>
+  <select id="pelaje">
+    <option value=""></option>
+    <option value="Negro">Negro</option>
+    <option value="Marrón">Marrón</option>
+    <option value="Blanco">Blanco</option>
+  </select>
+  <br>
+  <label for="ciudad">Ciudad:</label>
+  <select id="ciudad">
+    <option value=""></option>
+    <option value="Madrid">Madrid</option>
+    <option value="Barcelona">Barcelona</option>
+    <option value="Valencia">Valencia</option>
+  </select>
+  <br>
+  <input type="submit" value="Filtrar">
+</form>
+
+
+<!-- Cards con información de las mascotas perdidas -->
+<div>
+<div class="card">
+  <img src="perro1.jpg" alt="Perro">
+  <div class="info">
+    <h3>Nombre del animal</h3>
+    <p>Tipo: <span>Perro</span></p>
+    <p>Pelaje: <span>Marrón y blanco</span></p>
+    <p>Ciudad: <span>Madrid</span></p>
+    <a href="#">Más información</a>
+  </div>
+</div>
+<div class="card">
+  <img src="gato1.jpg" alt="Gato">
+  <div class="info">
+    <h3>Nombre del animal</h3>
+    <p>Tipo: <span>Gato</span></p>
+    <p>Pelaje: <span>Negro y blanco</span></p>
+    <p>Ciudad: <span>Barcelona</span></p>
+    <a href="#">Más información</a>
+  </div>
+</div>
+<div class="card">
+  <img src="perro2.jpg" alt="Perro">
+  <div class="info">
+    <h3>Nombre del animal</h3>
+    <p>Tipo: <span>Perro</span></p>
+    <p>Pelaje: <span>Negro</span></p>
+    <p>Ciudad: <span>Valencia</span></p>
+    <a href="#">Más información</a>
+  </div>
+</div>
+<div class="card">
+  <img src="gato2.jpg" alt="Gato">
+  <div class="info">
+    <h3>Nombre del animal</h3>
+    <p>Tipo: <span>Gato</span></p>
+    <p>Pelaje: <span>Atigrado</span></p>
+    <p>Ciudad: <span>Sevilla</span></p>
+    <a href="#">Más información</a>
+  </div>
+</div>
+
+<div class="card">
+  <img src="perro3.jpg" alt="Perro">
+  <div class="info">
+    <h3>Nombre del animal</h3>
+    <p>Tipo: <span>Perro</span></p>
+    <p>Pelaje: <span>Blanco y negro</span></p>
+    <p>Ciudad: <span>Bilbao</span></p>
+    <a href="#">Más información</a>
+  </div>
+</div>
+<div class="card">
+  <img src="gato3.jpg" alt="Gato">
+  <div class="info">
+    <h3>Nombre del animal</h3>
+    <p>Tipo: <span>Gato</span></p>
+    <p>Pelaje: <span>Gris</span></p>
+    <p>Ciudad: <span>Alicante</span></p>
+    <a href="#">Más información</a>
+  </div>
+</div>
+</div>
+<!-- Fin de la sección "Mascotas perdidas" -->
+</section>
+
+<footer>
+  <div id="footer-content">
+    <div id="social-media">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+    <p>Copyright &copy; Acaestoy 2021</p>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="../js/main.js"></script>
+</body>
+</html>
