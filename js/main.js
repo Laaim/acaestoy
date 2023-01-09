@@ -1,31 +1,29 @@
-// Función que se ejecuta al enviar el formulario
-function filtrar() {
-  // Obtener valores de los campos del formulario
-  let tipo = document.getElementById('tipo').value;
-  let pelaje = document.getElementById('pelaje').value;
-  let ciudad = document.getElementById('ciudad').value;
+<script>
+  // Obtener todas las tarjetas
+  let cards = document.querySelectorAll(".card");
 
-  // Obtener todas las cards
-  let cards = document.getElementsByClassName('card');
+  // Obtener el botón de filtro
+  let filterButton = document.querySelector("#filterButton");
 
-  // Recorrer cada card
-  for (let i = 0; i < cards.length; i++) {
-    let card = cards[i];
-    let info = card.getElementsByClassName('info')[0];
+  // Agregar un evento de clic al botón de filtro
+  filterButton.addEventListener("click", function() {
+    // Obtener el tipo de filtro seleccionado
+    let filterType = document.querySelector("#filterSelect").value;
 
-    // Obtener valores de la card
-    let tipoCard = info.getElementsByTagName('span')[0].innerHTML;
-    let pelajeCard = info.getElementsByTagName('span')[1].innerHTML;
-    let ciudadCard = info.getElementsByTagName('span')[2].innerHTML;
-
-    // Mostrar la card si cumple con todos los filtros o si no hay filtros seleccionados
-    if ((tipo == tipoCard || tipo == "") && (pelaje == pelajeCard || pelaje == "") && (ciudad == ciudadCard || ciudad == "")) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
+    // Recorrer todas las tarjetas
+    for (let card of cards) {
+      // Si el tipo de filtro es "todos", mostrar todas las tarjetas
+      if (filterType == "todos") {
+        card.style.display = "block";
+      } else {
+        // Si el tipo de la tarjeta no coincide con el filtro, ocultarla
+        if (card.getAttribute("data-type") != filterType) {
+          card.style.display = "none";
+        } else {
+          // Si el tipo de la tarjeta coincide con el filtro, mostrarla
+          card.style.display = "block";
+        }
+      }
     }
-  }
-}
-
-// Añadir evento submit al formulario
-document.getElementById('formulario').addEventListener('submit', filtrar);
+  });
+</script>
