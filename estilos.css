@@ -268,3 +268,6 @@ footer {
 #filtro-negro:not(:checked) ~ .card[data-color="negro"] {
   display: none;
 }
+
+/*probando*/
+
