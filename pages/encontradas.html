@@ -1,72 +1,1381 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acaestoy - Mascotas perdidas</title>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="../estilos.css">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Google Fonts -->
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  
+      <!-- Font Awesome CDN -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Custom css -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./finix.css">
+
+<script>// JavaScript
+    function filterResults() {
+      // Obtenemos el valor escrito en la barra de búsqueda
+      var searchValue = document.getElementById('search').value.toLowerCase();
+    
+      // Obtenemos los valores seleccionados en los filtros
+      var petType = document.getElementById('pet-type').value;
+      var petCity = document.getElementById('pet-city').value;
+      var petColor = document.getElementById('pet-color').value;
+    
+      // Iteramos sobre cada una de las respuestas del formulario
+      var responses = document.querySelectorAll('.jf-response');
+      for (var i = 0; i < responses.length; i++) {
+        var response = responses[i];
+    
+        // Mostramos o ocultamos la respuesta según corresponda
+        if (matchesFilters(response, searchValue, petType, petCity, petColor)) {
+          response.style.display = 'block';
+        } else {
+          response.style.display = 'none';
+        }
+      }
+    }
+    
+    function matchesFilters(response, searchValue, petType, petCity, petColor) {
+      // Comprobamos si la respuesta coincide con el valor escrito en la barra de búsqueda
+      if (searchValue) {
+        var description = response.querySelector('.jf-description').textContent.toLowerCase();
+        if (description.indexOf(searchValue) === -1) {
+          return false;
+        }
+      }
+    
+      // Comprobamos si la respuesta coincide con el tipo de mascota seleccionado
+      if (petType) {
+        var type = response.querySelector('.jf-pet-type').textContent.toLowerCase();
+        if (type !== petType) {
+          return false;
+        }
+      }
+    
+      // Comprobamos si la respuesta coincide con la ciudad seleccionada
+      if (petCity) {
+        var city = response.querySelector('.jf-pet-city').textContent.toLowerCase();
+        if (city !== petCity) {
+          return false;
+        }
+      }
+    
+      // Comprobamos si la respuesta coincide con el color de pelaje seleccionado
+      if (petColor) {
+        var color = response.querySelector('.jf-pet-color').textContent.toLowerCase();
+        if (color !== petColor) {
+          return false;
+        }
+      }
+    
+      // Si la respuesta coincide con todos los filtros, la devolvemos
+      return true;
+    }
+     </script>
+    <title>Acaestoy - Mascotas perdidas y encontradas</title>
   </head>
-
-  <body>
-    <header>
-      <div id="logo">
-        <img src="../assets/logoheader.png" alt="Logo de Acaestoy">
-      </div>
-      <nav>
-        <ul>
-          <li><a href="../pages/perdidas.html">Animales perdidos</a></li>
-          <li><a href="#">Animales encontrados</a></li>
-          <li><a href="#">¿Cómo funciona acaestoy?</a></li>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="../index.html"><img src="../assets/logopequeno.png"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sobre <strong> acaestoy</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">¿Cómo funciona?</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Mascotas perdidas o encontradas
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#"></a>
+              </li>
+              <li><a class="dropdown-item" href="perdidas.html">Mascotas Perdidas</a></li>
+              <li><a class="dropdown-item" href="encontradas.html">Mascotas Encontradas</a></li>
+            </ul>
+            
+          </li>
         </ul>
-      </nav>
-    </header>
-    <main>
-
-      <label for="filtro-gatos">Gatos</label>
-      <input type="checkbox" name="filtro-tipos" id="filtro-gatos" checked>
-      <label for="filtro-perros">Perros</label>
-      <input type="checkbox" name="filtro-tipos" id="filtro-perros" checked>
-      <br>
-      <!-- Menú de selección para filtrar por ciudad -->
-
-      <label for="filtro-blanco">Blanco</label>
-      <input type="checkbox" name="filtro-colores" id="filtro-blanco" checked>
-      <label for="filtro-negro">Negro</label>
-      <input type="checkbox" name="filtro-colores" id="filtro-negro" checked>
-      <label for="filtro-negro">Marrón</label>
-      <input type="checkbox" name="filtro-colores" id="filtro-marron" checked>  
-      <label for="filtro-negro">Manchado</label>
-      <input type="checkbox" name="filtro-colores" id="filtro-manchado" checked>  
-      <label for="filtro-negro">Atigrado</label>
-      <input type="checkbox" name="filtro-colores" id="filtro-atrigrado" checked>
-
-      <div class="card" data-type="perro" data-city="Pilar" data-color="blanco">
-        <img src="../assets/perra-pila.jpg" alt="Perra encontrada en Pilar">
-        <h3>Perrita hembra encontrada</h3>
-        <p>Encontrada el <strong>el 25/12 en Country Campo Chico, Pilar.</strong></p>
-        <p>Es todo negro con una manchita blanca en su pata, collar amarillo con número de celular</p>
-        <p>Contacto: Contacto 11 6445 9080.(@gishebar) ig</p>
       </div>
+    </div>
+  </nav>
+</header>
+<main>
+    <section class="about-section py-5">
+      <div class="container">
+       <div class="row">
+           <div class="col-lg-6">
+               <div class="about-img">
+                  <img src="assets/imagenindex.png" alt="">
+                   <div class="about-text">
+                   </div>
+               </div>
+           </div>
+           <div class="col-12">
+               <div class="finix-text">
+                  <h6>Gracias por difundir la imagen de la mascota encontrada.</h6>
+                  <h1>Por favor, completa el siguiente formulario para que pueda encontrar a su dueño pronto</h1>
+                  <p>El mismo será publicado en nuestro sitio a la brevedad.</p>
+                  <strong>Por favor, chequea que todos los datos estén colocados correctamente.</strong>
+               </div>
+           </div>
+       </div>
+      </div>
+  </section>
+  <script src="https://cdn03.jotfor.ms/static/prototype.forms.js?3.3.38606" type="text/javascript"></script>
+  <script src="https://cdn01.jotfor.ms/static/jotform.forms.js?3.3.38606" type="text/javascript"></script>
+  <script src="https://cdn02.jotfor.ms/js/vendor/imageinfo.js?v=3.3.38606" type="text/javascript"></script>
+  <script src="https://cdn03.jotfor.ms/file-uploader/fileuploader.js?v=3.3.38606"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/punycode/1.4.1/punycode.js"></script>
+  <script type="text/javascript">	JotForm.newDefaultTheme = false;
+      JotForm.extendsNewTheme = false;
+      JotForm.singleProduct = true;
+      JotForm.newPaymentUIForNewCreatedForms = true;
+      JotForm.newPaymentUI = true;
+      JotForm.clearFieldOnHide="disable";
+      JotForm.submitError="jumpToFirstError";
+  
+      JotForm.init(function(){
+      /*INIT-START*/
+  
+   JotForm.calendarMonths = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+   JotForm.calendarDays = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"];
+   JotForm.calendarOther = {"today":"Hoy"};
+   var languageOptions = document.querySelectorAll('#langList li'); 
+   for(var langIndex = 0; langIndex < languageOptions.length; langIndex++) { 
+     languageOptions[langIndex].on('click', function(e) { setTimeout(function(){ JotForm.setCalendar("9", false, {"days":{"monday":true,"tuesday":true,"wednesday":true,"thursday":true,"friday":true,"saturday":true,"sunday":true},"future":true,"past":true,"custom":false,"ranges":false,"start":"","end":""}); }, 0); });
+   } 
+   JotForm.onTranslationsFetch(function() { JotForm.setCalendar("9", false, {"days":{"monday":true,"tuesday":true,"wednesday":true,"thursday":true,"friday":true,"saturday":true,"sunday":true},"future":true,"past":true,"custom":false,"ranges":false,"start":"","end":""}); });
+        JotForm.displayLocalTime("input_12_hourSelect", "input_12_minuteSelect","input_12_ampm", null, true);
+  if (window.JotForm && JotForm.accessible) $('input_21').setAttribute('tabindex',0);
+        JotForm.alterTexts({"ageVerificationError":"Debe ser mayor de {minAge} años para enviar este formulario.","alphabetic":"Este campo solo puede contener letras.","alphanumeric":"Este campo solo puede contener letras y números.","appointmentSelected":"Ha seleccionado {time} del {date}","ccDonationMinLimitError":"La Cantidad Mínima es {minAmount} {currency}","ccInvalidCVC":"El número CVC no es válido.","ccInvalidExpireDate":"La fecha de expiración no es válida","ccInvalidNumber":"El número de su tarjeta de crédito no es válido.","ccMissingDetails":"Please fill up the credit card details.","ccMissingDonation":"Favor ponga valores númericos en la cantidad a donar.","ccMissingProduct":"Por favor seleccione al menos un producto.","characterLimitError":"Demasiados caracteres. El límite es","characterMinLimitError":"Muy pocos caracteres. El mínimum es","confirmClearForm":"¿Está seguro que desea limpiar el formulario?","confirmEmail":"El correo electrónico no coincide","currency":"Este campo sólo puede contener valores de moneda.","cyrillic":"Este campo solo puede contener caracteres cirílicos.","dateInvalid":"Esta fecha no es valida. El formato de fecha es {format}","dateInvalidSeparate":"Esta fecha no es válida. Ponga una {element} válida","dateLimited":"Esta fecha no está disponible.","disallowDecimals":"Por favor, introduzca un número entero.","dragAndDropFilesHere_infoMessage":"Arrastre y suelte archivos aquí","email":"Introduzca una dirección e-mail válida","fillMask":"El valor de este campo debe llenar la mascara","freeEmailError":"No se permiten cuentas de correo gratuitas","generalError":"Existen errores en el formulario, por favor corríjalos antes de continuar.","generalPageError":"Hay errores en esta página. Por favor, corríjalos antes de continuar.","gradingScoreError":"El puntaje total debería ser sólo &amp;quot;menos que&amp;quot; o &amp;quot;igual que&amp;quot;","incompleteFields":"Existen campos requeridos incompletos. Por favor complételos.","inputCarretErrorA":"La entrada no debe ser inferior al valor mínimo:","inputCarretErrorB":"La entrada debe ser menor al valor:","justSoldOut":"Se acaba de agotar","lessThan":"Su puntuación debería ser menor o igual que","maxDigitsError":"El máximo de dígitos permitido es","maxFileSize_infoMessage":"Tamaño de Archivo Máx.","maxSelectionsError":"The maximum number of selections allowed is ","minSelectionsError":"El número mínimo de opciones obligatorias es","multipleFileUploads_emptyError":"El fichero {file} está vacío; por favor, seleccione de nuevo los ficheros sin él.","multipleFileUploads_fileLimitError":"Solo {fileLimit} carga de archivos permitida.","multipleFileUploads_minSizeError":"{file} is demasiado pequeño, el tamaño mínimo de fichero es: {minSizeLimit}.","multipleFileUploads_onLeave":"Se están cargando los ficheros, si cierras ahora, se cancelará dicha carga.","multipleFileUploads_sizeError":"{file} es demasiado grande; el tamaño del archivo no debe superar los {sizeLimit}.","multipleFileUploads_typeError":"El fichero {file} posee una extensión no permitida. Sólo están permitidas las extensiones {extensions}.","multipleFileUploads_uploadFailed":"File upload failed, please remove it and upload the file again.","noSlotsAvailable":"No hay cupos disponibles","notEnoughStock":"No hay suficientes existencias para la selección actual","notEnoughStock_remainedItems":"No hay suficientes existencias para la selección actual (quedan {count} artículos)","noUploadExtensions":"File has no extension file type (e.g. .txt, .png, .jpeg)","numeric":"Este campo sólo admite valores numéricos.","pastDatesDisallowed":"La fecha debe ser futura","pleaseWait":"Por favor, espere ...","required":"Este campo es obligatorio.","requireEveryCell":"Se requieren todas las celdas.","requireEveryRow":"Todas las filas son obligatorias.","requireOne":"Al menos un campo requerido.","restrictedDomain":"This domain is not allowed","selectionSoldOut":"Selección agotada","slotUnavailable":"{time} del {date} ha sido tomada. Favor seleccionar otro espacio.","soldOut":"Agotado","subProductItemsLeft":"(quedan {count} productos)","uploadExtensions":"Solo puede subir los siguientes archivos:","uploadFilesize":"Tamaño del archivo no puede ser mayor que:","uploadFilesizemin":"Tamañao de archivo no puede ser menos de:","url":"Este campo solo contiene una URL válida.","validateEmail":"Usted necesita validar este e-mail","wordLimitError":"Demasiadas palabras. El límite es","wordMinLimitError":"Muy pocas palabras. El mínimo es"});
+        JotForm.alterTexts({"couponApply":"Aplicar","couponBlank":"Favor ingrese un cupón.","couponChange":"","couponEnter":"Introduzca Cupón","couponExpired":"Cupón ha caducado. Por favor, intente otra.","couponInvalid":"El cupón es inválido.","couponValid":"El cupón es válido.","shippingShipping":"Envío","taxTax":"Impuesto","totalSubtotal":"Subtotal","totalTotal":"Total"}, true);
+        setTimeout(function() {
+            JotForm.initMultipleUploads();
+        }, 2);
+      /*INIT-END*/
+      });
+  
+     JotForm.prepareCalculationsOnTheFly([null,{"name":"heading","qid":"1","text":"¿Has encontrado o perdido una mascota?","type":"control_head"},{"name":"submit2","qid":"2","text":"Enviar","type":"control_button"},null,null,null,null,null,{"description":"","name":"esUn","qid":"8","text":"¿Es un perro o un gato?","type":"control_radio"},{"description":"","name":"cuandoLo","qid":"9","text":"¿Cuando lo has visto por ultima vez?","type":"control_datetime"},{"description":"","name":"dondeLo","qid":"10","text":"¿Donde lo has encontrado","type":"control_address"},null,{"description":"","name":"hora","qid":"12","text":"Hora","type":"control_time"},null,null,null,{"description":"","name":"subeLa","qid":"16","subLabel":"","text":"Sube la imagen del animal que has encontrado\u002Fperdido. En caso que no hayas podido tomarle una imagen, por favor coloca en este campo una imagen de un perro\u002Fgato similar que encuentres en Google y en los comentarios de este formulario coloca la mayor cantidad de informacion que puedas","type":"control_fileupload"},{"description":"","name":"seleccionaEl","qid":"17","subLabel":"","text":"Selecciona el color del pelaje del animal","type":"control_dropdown"},{"description":"","name":"dejanosTu","qid":"18","text":"Dejanos tu telefono para poder publicarlo en la pagina y que otras personas se puedan contactar con vos en caso que lo necesiten","type":"control_phone"},null,null,{"description":"","name":"aquiPuedes","qid":"21","subLabel":"","text":"Aqui puedes dar una mayor descripcion de la mascota perdida\u002Fencontrada (tales como el nombre, si tiene alguna caracteristica especial en el pelaje, si es pequeno o grande, etc.)","type":"control_textarea"},{"description":"","name":"email","qid":"22","subLabel":"ejemplo@ejemplo.com","text":"Tu e-mail","type":"control_email"},{"description":"","name":"tuNombre","qid":"23","text":"Tu nombre","type":"control_fullname"}]);
+     setTimeout(function() {
+  JotForm.paymentExtrasOnTheFly([null,{"name":"heading","qid":"1","text":"¿Has encontrado o perdido una mascota?","type":"control_head"},{"name":"submit2","qid":"2","text":"Enviar","type":"control_button"},null,null,null,null,null,{"description":"","name":"esUn","qid":"8","text":"¿Es un perro o un gato?","type":"control_radio"},{"description":"","name":"cuandoLo","qid":"9","text":"¿Cuando lo has visto por ultima vez?","type":"control_datetime"},{"description":"","name":"dondeLo","qid":"10","text":"¿Donde lo has encontrado","type":"control_address"},null,{"description":"","name":"hora","qid":"12","text":"Hora","type":"control_time"},null,null,null,{"description":"","name":"subeLa","qid":"16","subLabel":"","text":"Sube la imagen del animal que has encontrado\u002Fperdido. En caso que no hayas podido tomarle una imagen, por favor coloca en este campo una imagen de un perro\u002Fgato similar que encuentres en Google y en los comentarios de este formulario coloca la mayor cantidad de informacion que puedas","type":"control_fileupload"},{"description":"","name":"seleccionaEl","qid":"17","subLabel":"","text":"Selecciona el color del pelaje del animal","type":"control_dropdown"},{"description":"","name":"dejanosTu","qid":"18","text":"Dejanos tu telefono para poder publicarlo en la pagina y que otras personas se puedan contactar con vos en caso que lo necesiten","type":"control_phone"},null,null,{"description":"","name":"aquiPuedes","qid":"21","subLabel":"","text":"Aqui puedes dar una mayor descripcion de la mascota perdida\u002Fencontrada (tales como el nombre, si tiene alguna caracteristica especial en el pelaje, si es pequeno o grande, etc.)","type":"control_textarea"},{"description":"","name":"email","qid":"22","subLabel":"ejemplo@ejemplo.com","text":"Tu e-mail","type":"control_email"},{"description":"","name":"tuNombre","qid":"23","text":"Tu nombre","type":"control_fullname"}]);}, 20); 
+  </script>
+  <link href="https://cdn01.jotfor.ms/static/formCss.css?3.3.38606" rel="stylesheet" type="text/css" />
+  <link type="text/css" rel="stylesheet" href="https://cdn02.jotfor.ms/css/styles/nova.css?3.3.38606" />
+  <style type="text/css">@media print{.form-section{display:inline!important}.form-pagebreak{display:none!important}.form-section-closed{height:auto!important}.page-section{position:initial!important}}</style>
+  <link type="text/css" rel="stylesheet" href="https://cdn03.jotfor.ms/themes/CSS/638f23ae613631260b46c34a.css?themeRevisionID=638f23c33238628412a533f4"/>
+  <link type="text/css" rel="stylesheet" href="https://cdn01.jotfor.ms/css/styles/payment/payment_styles.css?3.3.38606" />
+  <link type="text/css" rel="stylesheet" href="https://cdn02.jotfor.ms/css/styles/payment/payment_feature.css?3.3.38606" />
+  <style type="text/css">
+  @import 'https://cdn.jotfor.ms/fonts/?family=Roboto';
+  
+      .form-label-left{
+          width:150px;
+      }
+      .form-line{
+          padding-top:12px;
+          padding-bottom:12px;
+      }
+      .form-label-right{
+          width:150px;
+      }
+      .form-all{
+          width:800px;
+          color:rgb(50, 50, 50) !important;
+          font-family:'Roboto';
+          font-size:14px;
+      }
+  </style>
+  
+  <style type="text/css" id="form-designer-style">
+  @import "https://fonts.googleapis.com/css?family=Roboto+Condensed:light,lightitalic,normal,italic,bold,bolditalic";
+      /* Injected CSS Code */
+  
+  .form-all:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .form-all {
+    font-family: "Roboto", sans-serif;
+  }
+  .form-all {
+    width: 800px;
+  }
+  .form-label-left,
+  .form-label-right {
+    width: 150px;
+  }
+  .form-label {
+    white-space: normal;
+  }
+  .form-label.form-label-auto {
+    display: block;
+    float: none;
+    word-break: break-word;
+    text-align: left;
+  }
+  .form-label-left {
+    display: inline-block;
+    white-space: normal;
+    float: left;
+    text-align: left;
+  }
+  .form-label-right {
+    display: inline-block;
+    white-space: normal;
+    float: left;
+    text-align: right;
+  }
+  .form-label-top {
+    white-space: normal;
+    display: block;
+    float: none;
+    text-align: left;
+  }
+  .form-radio-item label:before {
+    top: 0;
+  }
+  .form-all {
+    font-size: 14px;
+  }
+  .form-label {
+    font-weight: bold;
+  }
+  .form-checkbox-item label,
+  .form-radio-item label {
+    font-weight: normal;
+  }
+  .supernova {
+    background-color: #ffffff;
+    background-color: #f5f5f5;
+  }
+  .supernova body {
+    background-color: transparent;
+  }
+  /*
+  @width30: (unit(@formWidth, px) + 60px);
+  @width60: (unit(@formWidth, px)+ 120px);
+  @width90: (unit(@formWidth, px)+ 180px);
+  */
+  /* | */
+  @media screen and (min-width: 480px) {
+    .supernova .form-all {
+      border: 1px solid #dcdcdc;
+      box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);
+    }
+  }
+  /* | */
+  /* | */
+  @media screen and (max-width: 480px) {
+    .jotform-form .form-all {
+      margin: 0;
+      width: 100%;
+    }
+  }
+  /* | */
+  /* | */
+  @media screen and (min-width: 480px) and (max-width: 767px) {
+    .jotform-form .form-all {
+      margin: 0;
+      width: 100%;
+    }
+  }
+  /* | */
+  /* | */
+  @media screen and (min-width: 480px) and (max-width: 799px) {
+    .jotform-form .form-all {
+      margin: 0;
+      width: 100%;
+    }
+  }
+  /* | */
+  /* | */
+  @media screen and (min-width: 768px) {
+    .jotform-form {
+      padding: 60px 0;
+    }
+  }
+  /* | */
+  /* | */
+  @media screen and (max-width: 799px) {
+    .jotform-form .form-all {
+      margin: 0;
+      width: 100%;
+    }
+  }
+  /* | */
+  .supernova .form-all,
+  .form-all {
+    background-color: #ffffff;
+    border: 1px solid transparent;
+  }
+  .form-header-group {
+    border-color: #e6e6e6;
+  }
+  .form-matrix-table tr {
+    border-color: #e6e6e6;
+  }
+  .form-matrix-table tr:nth-child(2n) {
+    background-color: #f2f2f2;
+  }
+  .form-all {
+    color: #323232;
+  }
+  .form-header-group .form-header {
+    color: #323232;
+  }
+  .form-header-group .form-subHeader {
+    color: #4c4c4c;
+  }
+  .form-sub-label {
+    color: #4c4c4c;
+  }
+  .form-label-top,
+  .form-label-left,
+  .form-label-right,
+  .form-html {
+    color: #323232;
+  }
+  .form-checkbox-item label,
+  .form-radio-item label {
+    color: #4c4c4c;
+  }
+  .form-line.form-line-active {
+    -webkit-transition-property: all;
+    -moz-transition-property: all;
+    -ms-transition-property: all;
+    -o-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -ms-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+    -moz-transition-timing-function: ease;
+    -ms-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+    transition-timing-function: ease;
+    background-color: rgba(0, 0, 0, 0.06);
+  }
+  /* omer */
+  .form-radio-item,
+  .form-checkbox-item {
+    padding-bottom: 0px !important;
+  }
+  .form-radio-item:last-child,
+  .form-checkbox-item:last-child {
+    padding-bottom: 0;
+  }
+  /* omer */
+  .form-single-column .form-checkbox-item,
+  .form-single-column .form-radio-item {
+    width: 100%;
+  }
+  .form-checkbox-item .editor-container div,
+  .form-radio-item .editor-container div {
+    position: relative;
+  }
+  .form-checkbox-item .editor-container div:before,
+  .form-radio-item .editor-container div:before {
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    left: 0;
+    width: 18px;
+    height: 18px;
+  }
+  .form-checkbox-item,
+  .form-radio-item {
+    padding-left: 2px;
+  }
+  .form-checkbox-item input,
+  .form-radio-item input {
+    margin-top: 2px;
+  }
+  .supernova {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center top;
+    background-attachment: fixed;
+    background-size: auto;
+  }
+  .supernova {
+    background-image: none;
+    background-image: url("https://static.vecteezy.com/system/resources/thumbnails/005/863/122/small/dog-or-cat-footprints-paw-print-dog-footprints-paw-foot-trail-print-on-white-background-free-vector.jpg");
+  }
+  #stage {
+    background-image: none;
+    background-image: url("https://static.vecteezy.com/system/resources/thumbnails/005/863/122/small/dog-or-cat-footprints-paw-print-dog-footprints-paw-foot-trail-print-on-white-background-free-vector.jpg");
+  }
+  /* | */
+  .form-all {
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center top;
+    background-repeat: repeat;
+  }
+  .form-header-group {
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center top;
+  }
+  .form-line {
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+  .form-line {
+    padding: 6px 36px;
+  }
+  .form-all .form-textbox,
+  .form-all .form-radio-other-input,
+  .form-all .form-checkbox-other-input,
+  .form-all .form-captcha input,
+  .form-all .form-spinner input,
+  .form-all .form-pagebreak-back,
+  .form-all .form-pagebreak-next,
+  .form-all .qq-upload-button,
+  .form-all .form-error-message {
+    border-radius: 0px;
+  }
+  .form-all .form-textarea {
+    border-radius: 0px;
+  }
+  .form-all .form-submit-button,
+  .form-all .form-submit-reset,
+  .form-all .form-submit-print {
+    border-radius: 0px;
+  }
+  .form-dropdown {
+    border-radius: 0px;
+    appearance: none;
+    margin: 0;
+  }
+  .form-all {
+    border-radius: 20px;
+  }
+  .form-section:first-child {
+    border-radius: 20px 20px 0 0;
+  }
+  .form-section:last-child {
+    border-radius: 0 0 20px 20px;
+  }
+  .form-all .qq-upload-button,
+  .form-all .form-submit-button,
+  .form-all .form-submit-reset,
+  .form-all .form-submit-print {
+    font-size: 1em;
+    padding: 9px 15px;
+    font-family: "Roboto", sans-serif;
+    font-size: 19px;
+    font-weight: normal;
+    border: none;
+    border-width: 0px !important;
+    border-style: solid !important;
+  }
+  .form-all .qq-upload-button,
+  .form-all .form-submit-button,
+  .form-all .form-submit-reset,
+  .form-all .form-submit-print {
+    color: #ffffff !important;
+    background: #1b9366;
+    box-shadow: none;
+    text-shadow: none;
+  }
+  .form-all .form-pagebreak-back,
+  .form-all .form-pagebreak-next {
+    font-size: 1em;
+    padding: 9px 15px;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+  }
+  h2.form-header {
+    line-height: 1.618em;
+    font-size: 1.714em;
+  }
+  h2 ~ .form-subHeader {
+    line-height: 1.5em;
+    font-size: 1.071em;
+  }
+  .form-header-group {
+    text-align: center;
+  }
+  /*.form-dropdown,
+  .form-radio-item,
+  .form-checkbox-item,
+  .form-radio-other-input,
+  .form-checkbox-other-input,*/
+  .form-captcha input,
+  .form-spinner input,
+  .form-error-message {
+    padding: 4px 3px 2px 3px;
+  }
+  .form-header-group {
+    font-family: "Roboto Condensed", sans-serif;
+  }
+  .form-section {
+    padding: 1px 0px 1px 0px;
+  }
+  .form-header-group {
+    margin: 0px 0px 0px 0px;
+  }
+  .form-header-group {
+    padding: 24px 36px 24px 36px;
+  }
+  .form-header-group .form-header,
+  .form-header-group .form-subHeader {
+    color: #040904;
+  }
+  .form-header-group {
+    background-color: rgba(255, 255, 255, 0.56);
+  }
+  .form-textbox,
+  .form-textarea {
+    border-width: 0px;
+    border-color: #ffffff;
+    color: #202020;
+    padding: 4px 3px 2px 3px;
+  }
+  .form-textbox,
+  .form-textarea,
+  .form-radio-other-input,
+  .form-checkbox-other-input,
+  .form-captcha input,
+  .form-spinner input {
+    background-color: #f5f5f5;
+  }
+  .form-textarea {
+    height: 100px;
+  }
+  .form-matrix-row-headers,
+  .form-matrix-column-headers,
+  .form-matrix-values {
+    padding: 4px;
+  }
+  .form-dropdown {
+    border-width: 0px;
+    border-color: #1b1b1a;
+    color: #202020;
+    background-color: rgba(255, 255, 255, 0.54);
+  }
+  [data-type="control_dropdown"] .form-input,
+  [data-type="control_dropdown"] .form-input-wide {
+    width: 150px;
+  }
+  .form-buttons-wrapper {
+    margin-left: 0 !important;
+    text-align: center;
+  }
+  .form-label {
+    margin-bottom: 0px;
+    margin-right: 0;
+  }
+  .form-label {
+    font-family: "Roboto", sans-serif;
+  }
+  li[data-type="control_image"] div {
+    text-align: left;
+  }
+  li[data-type="control_image"] img {
+    border: none;
+    border-width: 0px !important;
+    border-style: solid !important;
+    border-color: false !important;
+  }
+  .form-line-column {
+    width: auto;
+  }
+  .form-line-error {
+    overflow: hidden;
+    -webkit-transition-property: none;
+    -moz-transition-property: none;
+    -ms-transition-property: none;
+    -o-transition-property: none;
+    transition-property: none;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -ms-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+    -moz-transition-timing-function: ease;
+    -ms-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+    transition-timing-function: ease;
+    background-color: rgba(255, 244, 244, 0);
+  }
+  .form-line-error .form-error-message {
+    background-color: #ff3200;
+    clear: both;
+    float: none;
+  }
+  .form-line-error .form-error-message .form-error-arrow {
+    border-bottom-color: #ff3200;
+  }
+  .form-line-error input:not(#coupon-input),
+  .form-line-error textarea,
+  .form-line-error .form-validation-error {
+    border: 1px solid #ff3200;
+    box-shadow: 0 0 3px #ff3200;
+  }
+  .form-all {
+    position: relative;
+  }
+  .form-all:before {
+    content: "";
+    background-image: url("https://www.jotform.com/uploads/maqulaii/form_files/logoacaestoy.63baca6621cf82.05099787.png");
+    display: inline-block;
+    height: 80px;
+    position: absolute;
+    background-size: 80px 80px;
+    background-repeat: no-repeat;
+    width: 100%;
+  }
+  .form-all {
+    margin-top: 90px !important;
+  }
+  .form-all:before {
+    top: -90px;
+    left: 0;
+    background-position: top left;
+  }
+  .ie-8 .form-all {
+    margin-top: auto;
+    margin-top: initial;
+  }
+  .ie-8 .form-all:before {
+    display: none;
+  }
+  [data-type="control_clear"] {
+    display: none;
+  }
+  /* | */
+  @media screen and (max-width: 480px), screen and (max-device-width: 767px) and (orientation: portrait), screen and (max-device-width: 415px) and (orientation: landscape) {
+    .testOne {
+      letter-spacing: 0;
+    }
+    .form-all {
+      border: 0;
+      max-width: initial;
+    }
+    .form-sub-label-container {
+      width: 100%;
+      margin: 0;
+      margin-right: 0;
+      float: left;
+      box-sizing: border-box;
+    }
+    span.form-sub-label-container + span.form-sub-label-container {
+      margin-right: 0;
+    }
+    .form-sub-label {
+      white-space: normal;
+    }
+    .form-address-table td,
+    .form-address-table th {
+      padding: 0 1px 10px;
+    }
+    .form-submit-button,
+    .form-submit-print,
+    .form-submit-reset {
+      width: 100%;
+      margin-left: 0!important;
+    }
+    div[id*=at_] {
+      font-size: 14px;
+      font-weight: 700;
+      height: 8px;
+      margin-top: 6px;
+    }
+    .showAutoCalendar {
+      width: 20px;
+    }
+    img.form-image {
+      max-width: 100%;
+      height: auto;
+    }
+    .form-matrix-row-headers {
+      width: 100%;
+      word-break: break-all;
+      min-width: 80px;
+    }
+    .form-collapse-table,
+    .form-header-group {
+      margin: 0;
+    }
+    .form-collapse-table {
+      height: 100%;
+      display: inline-block;
+      width: 100%;
+    }
+    .form-collapse-hidden {
+      display: none !important;
+    }
+    .form-input {
+      width: 100%;
+    }
+    .form-label {
+      width: 100% !important;
+    }
+    .form-label-left,
+    .form-label-right {
+      display: block;
+      float: none;
+      text-align: left;
+      width: auto!important;
+    }
+    .form-line,
+    .form-line.form-line-column {
+      padding: 2% 5%;
+      box-sizing: border-box;
+    }
+    input[type=text],
+    input[type=email],
+    input[type=tel],
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+      max-width: initial !important;
+    }
+    .form-radio-other-input,
+    .form-checkbox-other-input {
+      max-width: 55% !important;
+    }
+    .form-dropdown,
+    .form-textarea,
+    .form-textbox {
+      width: 100%!important;
+      box-sizing: border-box;
+    }
+    .form-input,
+    .form-input-wide,
+    .form-textarea,
+    .form-textbox,
+    .form-dropdown {
+      max-width: initial!important;
+    }
+    .form-checkbox-item:not(#foo),
+    .form-radio-item:not(#foo) {
+      width: 100%;
+    }
+    .form-address-city,
+    .form-address-line,
+    .form-address-postal,
+    .form-address-state,
+    .form-address-table,
+    .form-address-table .form-sub-label-container,
+    .form-address-table select,
+    .form-input {
+      width: 100%;
+    }
+    div.form-header-group {
+      padding: 24px 36px !important;
+      padding-left: 5%!important;
+      padding-right: 5%!important;
+      margin: 0 0px 2% !important;
+      box-sizing: border-box;
+    }
+    div.form-header-group.hasImage img {
+      max-width: 100%;
+    }
+    [data-type="control_button"] {
+      margin-bottom: 0 !important;
+    }
+    [data-type=control_fullname] .form-sub-label-container {
+      width: 48%;
+    }
+    [data-type=control_fullname] .form-sub-label-container:first-child {
+      margin-right: 4%;
+    }
+    [data-type=control_phone] .form-sub-label-container {
+      width: 65%;
+      margin-right: 0;
+      margin-left: 0;
+      float: left;
+    }
+    [data-type=control_phone] .form-sub-label-container:first-child {
+      width: 31%;
+      margin-right: 4%;
+    }
+    [data-type=control_datetime] .allowTime-container {
+      width: 100%;
+    }
+    [data-type=control_datetime] .allowTime-container .form-sub-label-container {
+      width: 24%!important;
+      margin-left: 6%;
+      margin-right: 0;
+    }
+    [data-type=control_datetime] .allowTime-container .form-sub-label-container:first-child {
+      margin-left: 0;
+    }
+    [data-type=control_datetime] span + span + span > span:first-child {
+      display: block;
+      width: 100% !important;
+    }
+    [data-type=control_birthdate] .form-sub-label-container,
+    [data-type=control_time] .form-sub-label-container {
+      width: 27.3%!important;
+      margin-right: 6% !important;
+    }
+    [data-type=control_time] .form-sub-label-container:last-child {
+      width: 33.3%!important;
+      margin-right: 0 !important;
+    }
+    .form-pagebreak-back-container,
+    .form-pagebreak-next-container {
+      min-height: 1px;
+      width: 50% !important;
+    }
+    .form-pagebreak-back,
+    .form-pagebreak-next,
+    .form-product-item.hover-product-item {
+      width: 100%;
+    }
+    .form-pagebreak-back-container {
+      padding: 0;
+      text-align: right;
+    }
+    .form-pagebreak-next-container {
+      padding: 0;
+      text-align: left;
+    }
+    .form-pagebreak {
+      margin: 0 auto;
+    }
+    .form-buttons-wrapper {
+      margin: 0!important;
+      margin-left: 0!important;
+    }
+    .form-buttons-wrapper button {
+      width: 100%;
+    }
+    .form-buttons-wrapper .form-submit-print {
+      margin: 0 !important;
+    }
+    table {
+      width: 100%!important;
+      max-width: initial!important;
+    }
+    table td + td {
+      padding-left: 3%;
+    }
+    .form-checkbox-item,
+    .form-radio-item {
+      white-space: normal!important;
+    }
+    .form-checkbox-item input,
+    .form-radio-item input {
+      width: auto;
+    }
+    .form-collapse-table {
+      margin: 0 5%;
+      display: block;
+      zoom: 1;
+      width: auto;
+    }
+    .form-collapse-table:before,
+    .form-collapse-table:after {
+      display: table;
+      content: '';
+      line-height: 0;
+    }
+    .form-collapse-table:after {
+      clear: both;
+    }
+    .fb-like-box {
+      width: 98% !important;
+    }
+    .form-error-message {
+      clear: both;
+      bottom: -10px;
+    }
+    .date-separate,
+    .phone-separate {
+      display: none;
+    }
+    .custom-field-frame,
+    .direct-embed-widgets,
+    .signature-pad-wrapper {
+      width: 100% !important;
+    }
+  }
+  /* | */
+  
+  /*PREFERENCES STYLE*/
+      .form-all {
+        font-family: Roboto, sans-serif;
+      }
+      .form-all .qq-upload-button,
+      .form-all .form-submit-button,
+      .form-all .form-submit-reset,
+      .form-all .form-submit-print {
+        font-family: Roboto, sans-serif;
+      }
+      .form-all .form-pagebreak-back-container,
+      .form-all .form-pagebreak-next-container {
+        font-family: Roboto, sans-serif;
+      }
+      .form-header-group {
+        font-family: Roboto, sans-serif;
+      }
+      .form-label {
+        font-family: Roboto, sans-serif;
+      }
+    
+      .form-label.form-label-auto {
+        
+      display: block;
+      float: none;
+      text-align: left;
+      width: 100%;
+    
+      }
+    
+      .form-line {
+        margin-top: 12px;
+        margin-bottom: 12px;
+      }
+    
+      .form-all {
+        max-width: 800px;
+        width: 100%;
+      }
+    
+      .form-label.form-label-left,
+      .form-label.form-label-right,
+      .form-label.form-label-left.form-label-auto,
+      .form-label.form-label-right.form-label-auto {
+        width: 150px;
+      }
+    
+      .form-all {
+        font-size: 14px
+      }
+      .form-all .qq-upload-button,
+      .form-all .qq-upload-button,
+      .form-all .form-submit-button,
+      .form-all .form-submit-reset,
+      .form-all .form-submit-print {
+        font-size: 14px
+      }
+      .form-all .form-pagebreak-back-container,
+      .form-all .form-pagebreak-next-container {
+        font-size: 14px
+      }
+    
+      .supernova .form-all, .form-all {
+        background-color: #ffffff;
+      }
+    
+      .form-all {
+        color: rgb(50, 50, 50);
+      }
+      .form-header-group .form-header {
+        color: rgb(4, 9, 4);
+      }
+      .form-header-group .form-subHeader {
+        color: rgb(50, 50, 50);
+      }
+      .form-label-top,
+      .form-label-left,
+      .form-label-right,
+      .form-html,
+      .form-checkbox-item label,
+      .form-radio-item label,
+      span.FITB .qb-checkbox-label,
+      span.FITB .qb-radiobox-label,
+      span.FITB .form-radio label,
+      span.FITB .form-checkbox label,
+      [data-blotid][data-type=checkbox] [data-labelid],
+      [data-blotid][data-type=radiobox] [data-labelid],
+      span.FITB-inptCont[data-type=checkbox] label,
+      span.FITB-inptCont[data-type=radiobox] label {
+        color: rgb(50, 50, 50);
+      }
+      .form-sub-label {
+        color: 1a1a1a;
+      }
+    
+      .supernova {
+        background-color: rgb(245, 245, 245);
+      }
+      .supernova body {
+        background: transparent;
+      }
+    
+      .form-textbox,
+      .form-textarea,
+      .form-dropdown,
+      .form-radio-other-input,
+      .form-checkbox-other-input,
+      .form-captcha input,
+      .form-spinner input {
+        background-color: rgb(245, 245, 245);
+      }
+    
+        .supernova {
+          height: 100%;
+          background-repeat: repeat;
+          background-attachment: scroll;
+          background-position: center top;
+        }
+        .supernova {
+          background-image: url("https://static.vecteezy.com/system/resources/thumbnails/005/863/122/small/dog-or-cat-footprints-paw-print-dog-footprints-paw-foot-trail-print-on-white-background-free-vector.jpg");
+        }
+        #stage {
+          background-image: url("https://static.vecteezy.com/system/resources/thumbnails/005/863/122/small/dog-or-cat-footprints-paw-print-dog-footprints-paw-foot-trail-print-on-white-background-free-vector.jpg");
+        }
       
+      .form-all {
+        background-image: none;
+      }
+    
+      .form-all {
+        position: relative;
+      }
+      .form-all:before {
+        content: "";
+        background-image: url("https://www.jotform.com/uploads/maqulaii/form_files/logoacaestoy.63baca6621cf82.05099787.png");
+        display: inline-block;
+        height: 80px;
+        position: absolute;
+        background-size: 80px 80px;
+        background-repeat: no-repeat;
+        width: 100%;
+      }
+      .form-all {
+        margin-top: 90px !important;
+      }
+      .form-all:before {
+        top: -90px;
+        left: 0;
+        background-position: top left;
+      }
+             
+    .ie-8 .form-all:before { display: none; }
+    .ie-8 {
+      margin-top: auto;
+      margin-top: initial;
+    }
+    
+    /*PREFERENCES STYLE*//*__INSPECT_SEPERATOR__*/
+  .form-label.form-label-auto {
+      display : block;
+      float : none;
+      text-align : left;
+      width : 100%;
+  }
+  
+  
+      /* Injected CSS Code */
+  </style>
+  
+  <form class="jotform-form" action="https://submit.jotform.com/submit/230088127833658/" method="post" enctype="multipart/form-data" name="form_230088127833658" id="230088127833658" accept-charset="utf-8" autocomplete="on"><input type="hidden" name="formID" value="230088127833658" /><input type="hidden" id="JWTContainer" value="" /><input type="hidden" id="cardinalOrderNumber" value="" />
+    <div role="main" class="form-all">
+      <ul class="form-section page-section">
+        <li id="cid_1" class="form-input-wide" data-type="control_head">
+          <div class="form-header-group  header-default">
+            <div class="header-text httac htvam">
+              <h2 id="header_1" class="form-header" data-component="header">¿Has encontrado o perdido una mascota?</h2>
+              <div id="subHeader_1" class="form-subHeader">Nuestras mascotas son parte de nuestra familia y cuando se pierden, nos sentimos devastados. Si has perdido a tu querida mascota o has encontrado a alguien más, esta plataforma es para ti. Ayuda a encontrar a las mascotas perdidas y devuelve la alegría a sus dueños. Juntos podemos hacer una diferencia y ayudar a reunir a estos amados animales con sus hogares. ¡Por favor, completa el formulario y comparte esta página con tus amigos y familiares para expandir nuestra red de búsqueda!</div>
+            </div>
+          </div>
+        </li>
+        <li class="form-line jf-required" data-type="control_radio" id="id_8"><label class="form-label form-label-top form-label-auto" id="label_8" for="input_8"> ¿Es un perro o un gato?<span class="form-required">*</span> </label>
+          <div id="cid_8" class="form-input-wide jf-required">
+            <div class="form-single-column" role="group" aria-labelledby="label_8" data-component="radio"><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_8" class="form-radio validate[required]" id="input_8_0" name="q8_esUn" value="Es un perro" required="" /><label id="label_input_8_0" for="input_8_0">Es un perro</label></span><span class="form-radio-item" style="clear:left"><span class="dragger-item"></span><input type="radio" aria-describedby="label_8" class="form-radio validate[required]" id="input_8_1" name="q8_esUn" value="Es un gato" required="" /><label id="label_input_8_1" for="input_8_1">Es un gato</label></span></div>
+          </div>
+        </li>
+        <li class="form-line jf-required" data-type="control_dropdown" id="id_17"><label class="form-label form-label-top form-label-auto" id="label_17" for="input_17"> Selecciona el color del pelaje del animal<span class="form-required">*</span> </label>
+          <div id="cid_17" class="form-input-wide jf-required"> <select class="form-dropdown validate[required]" id="input_17" name="q17_seleccionaEl" style="width:150px" data-component="dropdown" required="">
+              <option value=""></option>
+              <option value="Blanco">Blanco</option>
+              <option value="Negro">Negro</option>
+              <option value="Marrón">Marrón</option>
+              <option value="Atigrado">Atigrado</option>
+              <option value="Con manchas">Con manchas</option>
+              <option value=""></option>
+            </select> </div>
+        </li>
+        <li class="form-line jf-required" data-type="control_fileupload" id="id_16"><label class="form-label form-label-top" id="label_16" for="input_16"> Sube la imagen del animal que has encontrado/perdido. En caso que no hayas podido tomarle una imagen, por favor coloca en este campo una imagen de un perro/gato similar que encuentres en Google y en los comentarios de este formulario coloca la mayor cantidad de información que puedas<span class="form-required">*</span> </label>
+          <div id="cid_16" class="form-input-wide jf-required">
+            <div data-wrapper-react="true">
+              <div data-wrapper-react="true">
+                <div class="qq-uploader-buttonText-value">Buscar archivos</div><input type="file" id="input_16" name="q16_subeLa[]" multiple="" class="form-upload-multiple validate[required]" data-imagevalidate="yes" data-file-accept="jpg, jpeg, png" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" required="" />
+              </div><span style="display:none" class="cancelText">Cancel</span><span style="display:none" class="ofText">of</span>
+            </div>
+          </div>
+        </li>
+        <li class="form-line jf-required" data-type="control_datetime" id="id_9"><label class="form-label form-label-left" id="label_9" for="lite_mode_9"> ¿Cuándo lo has visto por última vez?<span class="form-required">*</span> </label>
+          <div id="cid_9" class="form-input jf-required">
+            <div data-wrapper-react="true">
+              <div style="display:none"><span class="form-sub-label-container" style="vertical-align:top"><input type="tel" class="form-textbox validate[required, limitDate]" id="month_9" name="q9_cuandoLo[month]" size="2" data-maxlength="2" data-age="" maxLength="2" value="" required="" autoComplete="section-input_9 off" aria-labelledby="label_9 sublabel_9_month" /><span class="date-separate" aria-hidden="true"> -</span><label class="form-sub-label" for="month_9" id="sublabel_9_month" style="min-height:13px" aria-hidden="false">Mes</label></span><span class="form-sub-label-container" style="vertical-align:top"><input type="tel" class="form-textbox validate[required, limitDate]" id="day_9" name="q9_cuandoLo[day]" size="2" data-maxlength="2" data-age="" maxLength="2" value="" required="" autoComplete="section-input_9 off" aria-labelledby="label_9 sublabel_9_day" /><span class="date-separate" aria-hidden="true"> -</span><label class="form-sub-label" for="day_9" id="sublabel_9_day" style="min-height:13px" aria-hidden="false">Día</label></span><span class="form-sub-label-container" style="vertical-align:top"><input type="tel" class="form-textbox validate[required, limitDate]" id="year_9" name="q9_cuandoLo[year]" size="4" data-maxlength="4" data-age="" maxLength="4" value="" required="" autoComplete="section-input_9 off" aria-labelledby="label_9 sublabel_9_year" /> <label class="form-sub-label" for="year_9" id="sublabel_9_year" style="min-height:13px" aria-hidden="false">Año</label></span></div><span class="form-sub-label-container" style="vertical-align:top"><input type="text" class="form-textbox validate[required, limitDate, validateLiteDate]" id="lite_mode_9" size="12" data-maxlength="12" maxLength="12" data-age="" value="" required="" data-format="mmddyyyy" data-seperator="-" placeholder="mm-dd-yyyy" autoComplete="section-input_9 off" aria-labelledby="label_9 sublabel_9_litemode" /><img class=" newDefaultTheme-dateIcon icon-liteMode" alt="Pick a Date" id="input_9_pick" src="https://cdn.jotfor.ms/images/calendar.png" data-component="datetime" aria-hidden="true" data-allow-time="No" data-version="v1" /> <label class="form-sub-label" for="lite_mode_9" id="sublabel_9_litemode" style="min-height:13px" aria-hidden="false">Fecha</label></span>
+            </div>
+          </div>
+        </li>
+        <li class="form-line" data-type="control_time" id="id_12"><label class="form-label form-label-left" id="label_12" for="input_12_hourSelect"> Hora </label>
+          <div id="cid_12" class="form-input">
+            <div data-wrapper-react="true"><span class="form-sub-label-container" style="vertical-align:top"><select class="time-dropdown form-dropdown" id="input_12_hourSelect" name="q12_hora[hourSelect]" data-component="time-hour" aria-labelledby="label_12 sublabel_12_hour">
+                  <option></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select><span class="date-separate"> :</span><label class="form-sub-label" for="input_12_hourSelect" id="sublabel_12_hour" style="min-height:13px" aria-hidden="false">Hora</label></span><span class="form-sub-label-container" style="vertical-align:top"><select class="time-dropdown form-dropdown" id="input_12_minuteSelect" name="q12_hora[minuteSelect]" data-component="time-minute" aria-labelledby="label_12 sublabel_12_minutes">
+                  <option></option>
+                  <option value="00">00</option>
+                  <option value="10">10</option>
+                  <option value="20">20</option>
+                  <option value="30">30</option>
+                  <option value="40">40</option>
+                  <option value="50">50</option>
+                </select> <label class="form-sub-label" for="input_12_minuteSelect" id="sublabel_12_minutes" style="min-height:13px" aria-hidden="false">Minutos</label></span><span class="form-sub-label-container" style="vertical-align:top"><select class="time-dropdown form-dropdown" id="input_12_ampm" name="q12_hora[ampm]" data-component="time-ampm" aria-labelledby="label_12 sublabel_12_ampm">
+                  <option value="AM">AM</option>
+                  <option selected="" value="PM">PM</option>
+                </select> <label class="form-sub-label" for="input_12_ampm" id="sublabel_12_ampm" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;white-space:nowrap" aria-hidden="false">AM/PM Option</label></span></div>
+          </div>
+        </li>
+        <li class="form-line jf-required" data-type="control_address" id="id_10" data-compound-hint=",,,,Seleccione,,Seleccione,"><label class="form-label form-label-left" id="label_10" for="input_10_addr_line1"> ¿Dónde lo has encontrado<span class="form-required">*</span> </label>
+          <div id="cid_10" class="form-input jf-required">
+            <div summary="" class="form-address-table jsTest-addressField">
+              <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-street-line jsTest-address-lineField"><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_10_addr_line1" name="q10_dondeLo[addr_line1]" class="form-textbox validate[required] form-address-line" data-defaultvalue="" autoComplete="section-input_10 address-line1" value="" data-component="address_line_1" aria-labelledby="label_10 sublabel_10_addr_line1" required="" /> <label class="form-sub-label" for="input_10_addr_line1" id="sublabel_10_addr_line1" style="min-height:13px" aria-hidden="false">Dirección</label></span></span></div>
+              <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-street-line jsTest-address-lineField"><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_10_addr_line2" name="q10_dondeLo[addr_line2]" class="form-textbox form-address-line" data-defaultvalue="" autoComplete="section-input_10 address-line2" value="" data-component="address_line_2" aria-labelledby="label_10 sublabel_10_addr_line2" /> <label class="form-sub-label" for="input_10_addr_line2" id="sublabel_10_addr_line2" style="min-height:13px" aria-hidden="false">Entre calles</label></span></span></div>
+              <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-city-line jsTest-address-lineField "><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_10_city" name="q10_dondeLo[city]" class="form-textbox validate[required] form-address-city" data-defaultvalue="" autoComplete="section-input_10 address-level2" value="" data-component="city" aria-labelledby="label_10 sublabel_10_city" required="" /> <label class="form-sub-label" for="input_10_city" id="sublabel_10_city" style="min-height:13px" aria-hidden="false">Ciudad</label></span></span><span class="form-address-line form-address-state-line jsTest-address-lineField "><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_10_state" name="q10_dondeLo[state]" class="form-textbox validate[required] form-address-state" data-defaultvalue="" autoComplete="section-input_10 address-level1" value="" data-component="state" aria-labelledby="label_10 sublabel_10_state" required="" /> <label class="form-sub-label" for="input_10_state" id="sublabel_10_state" style="min-height:13px" aria-hidden="false"> Provincia</label></span></span></div>
+              <div class="form-address-line-wrapper jsTest-address-line-wrapperField"><span class="form-address-line form-address-zip-line jsTest-address-lineField "><span class="form-sub-label-container" style="vertical-align:top"><input type="text" id="input_10_postal" name="q10_dondeLo[postal]" class="form-textbox validate[required] form-address-postal" data-defaultvalue="" autoComplete="section-input_10 postal-code" value="" data-component="zip" aria-labelledby="label_10 sublabel_10_postal" required="" /> <label class="form-sub-label" for="input_10_postal" id="sublabel_10_postal" style="min-height:13px" aria-hidden="false">Barrio</label></span></span></div>
+            </div>
+          </div>
+        </li>
+        <li class="form-line" data-type="control_textarea" id="id_21"><label class="form-label form-label-top form-label-auto" id="label_21" for="input_21"> Aquí puedes dar una mayor descripción de la mascota perdida/encontrada (tales como el nombre, si tiene alguna característica especial en el pelaje, si es pequeño o grande, etc.) </label>
+          <div id="cid_21" class="form-input-wide"> <textarea id="input_21" class="form-textarea" name="q21_aquiPuedes" cols="40" rows="6" data-component="textarea" aria-labelledby="label_21"></textarea> </div>
+        </li>
+        <li class="form-line jf-required" data-type="control_fullname" id="id_23" data-compound-hint=","><label class="form-label form-label-left" id="label_23" for="first_23"> Tu nombre<span class="form-required">*</span> </label>
+          <div id="cid_23" class="form-input jf-required">
+            <div data-wrapper-react="true"><span class="form-sub-label-container" style="vertical-align:top" data-input-type="first"><input type="text" id="first_23" name="q23_tuNombre[first]" class="form-textbox validate[required]" data-defaultvalue="" autoComplete="section-input_23 given-name" size="10" value="" data-component="first" aria-labelledby="label_23 sublabel_23_first" required="" /> <label class="form-sub-label" for="first_23" id="sublabel_23_first" style="min-height:13px" aria-hidden="false">Nombre</label></span><span class="form-sub-label-container" style="vertical-align:top" data-input-type="last"><input type="text" id="last_23" name="q23_tuNombre[last]" class="form-textbox validate[required]" data-defaultvalue="" autoComplete="section-input_23 family-name" size="15" value="" data-component="last" aria-labelledby="label_23 sublabel_23_last" required="" /> <label class="form-sub-label" for="last_23" id="sublabel_23_last" style="min-height:13px" aria-hidden="false">Apellido</label></span></div>
+          </div>
+        </li>
+        <li class="form-line" data-type="control_phone" id="id_18"><label class="form-label form-label-top form-label-auto" id="label_18" for="input_18_area"> Dejanos tu teléfono para poder publicarlo en la página y que otras personas se puedan contactar con vos en caso que lo necesiten </label>
+          <div id="cid_18" class="form-input-wide">
+            <div data-wrapper-react="true"><span class="form-sub-label-container" style="vertical-align:top" data-input-type="areaCode"><input type="tel" id="input_18_area" name="q18_dejanosTu[area]" class="form-textbox" data-defaultvalue="" autoComplete="section-input_18 tel-area-code" value="" data-component="areaCode" aria-labelledby="label_18 sublabel_18_area" /><span class="phone-separate" aria-hidden="true"> -</span> <label class="form-sub-label" for="input_18_area" id="sublabel_18_area" style="min-height:13px" aria-hidden="false">Código de área</label></span><span class="form-sub-label-container" style="vertical-align:top" data-input-type="phone"><input type="tel" id="input_18_phone" name="q18_dejanosTu[phone]" class="form-textbox" data-defaultvalue="" autoComplete="section-input_18 tel-local" value="" data-component="phone" aria-labelledby="label_18 sublabel_18_phone" /> <label class="form-sub-label" for="input_18_phone" id="sublabel_18_phone" style="min-height:13px" aria-hidden="false">Número de teléfono</label></span></div>
+          </div>
+        </li>
+        <li class="form-line" data-type="control_email" id="id_22"><label class="form-label form-label-top form-label-auto" id="label_22" for="input_22"> Tu e-mail </label>
+          <div id="cid_22" class="form-input-wide"> <span class="form-sub-label-container" style="vertical-align:top"><input type="email" id="input_22" name="q22_email" class="form-textbox validate[Email]" data-defaultvalue="" size="30" value="" data-component="email" aria-labelledby="label_22 sublabel_input_22" /> <label class="form-sub-label" for="input_22" id="sublabel_input_22" style="min-height:13px" aria-hidden="false">ejemplo@ejemplo.com</label></span> </div>
+        </li>
+        <li class="form-line" data-type="control_button" id="id_2">
+          <div id="cid_2" class="form-input-wide">
+            <div data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField"><button id="input_2" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">Enviar</button></div>
+          </div>
+        </li>
+        <li style="display:none">Should be Empty: <input type="text" name="website" value="" /></li>
+      </ul>
     </div>
-      <!-- Añade más tarjetas aquí si es necesario -->
-    </main>
-<footer>
-  <div id="footer-content">
-    <div id="social-media">
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
+    <script>
+      JotForm.showJotFormPowered = "new_footer";
+    </script>
+    <script>
+      JotForm.poweredByText = "Powered by Jotform";
+    </script><input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="230088127833658" />
+    <script type="text/javascript">
+      var all_spc = document.querySelectorAll("form[id='230088127833658'] .si" + "mple" + "_spc");
+      for (var i = 0; i < all_spc.length; i++)
+      {
+        all_spc[i].value = "230088127833658-230088127833658";
+      }
+    </script>
+    <div class="formFooter-heightMask"></div>
+    <div class="formFooter f6 branding21">
+      <div class="formFooter-wrapper formFooter-leftSide"><a href="https://www.jotform.com/?utm_source=formfooter&utm_medium=banner&utm_term=230088127833658&utm_content=jotform_logo&utm_campaign=powered_by_jotform_le" target="_blank" class="formFooter-logoLink"><img class="formFooter-logo" src="https://cdn.jotfor.ms/assets/img/logo2021/jotform-logo-white.svg" alt="Jotform Logo" style="height: 44px;"></a></div>
+      <div class="formFooter-wrapper formFooter-rightSide"><span class="formFooter-text">Now create your own Jotform - It's free!</span><a class="formFooter-button" href="https://www.jotform.com/?utm_source=formfooter&utm_medium=banner&utm_term=230088127833658&utm_content=jotform_button&utm_campaign=powered_by_jotform_le" target="_blank">Create your own Jotform</a></div>
     </div>
-    <p>Copyright &copy; Acaestoy 2021</p>
-  </div>
-</footer>
+  </form><script type="text/javascript">JotForm.ownerView=true;</script>
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+  <form>
+    <select id="pet-type">
+      <option value="">Tipo de mascota</option>
+      <option value="perro">Perro</option>
+      <option value="gato">Gato</option>
+    </select>
+    <select id="pet-city">
+      <option value="">Ciudad</option>
+      <option value="Tigre">Tigre</option>
+      <option value="El Talar">El Talar</option>
+      <option value="San Fernando">San Fernando</option>
+      <option value="Don Torcuato">Don Torcuato</option>
+      <option value="San Isidro">San Isidro</option>
+      <option value="Martínez">Martínez</option>
+      <option value="Boulogne">Boulogne</option>
+      <option value="Munro">Munro</option>
+      <option value="Villa Ballester">Villa Ballester</option>
+      <option value="Ombú">Ombú</option>
+      <option value="San Martín">San Martín</option>
+      <option value="Churruca">Churruca</option>
+      <option value="El Palomar">El Palomar</option>
+      <option value="Caseros">Caseros</option>
+      <option value="Santos Lugares">Santos Lugares</option>
+    </select>
+    <select id="pet-color">
+      <option value="">Color de pelaje</option>
+      <option value="blanco">Blanco</option>
+      <option value="negro">Negro</option>
+    </select>
+  </form>
+  </main>
+<footer class="bg-primary text-center text-lg-start text-white">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!--Grid row-->
+      <div class="row my-4">
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+
+          <div class="rounded-circle bg-white shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto" style="width: 150px; height: 150px;">
+            <img src="../assets/logopequeno.png" height="70" alt=""
+                 loading="lazy" />
+          </div>
+
+          <p class="text-center">"Un lugar donde encontrar a tu mascota perdida o ayudar a reunir a otras mascotas con sus dueños</p>
+
+          <ul class="list-unstyled d-flex flex-row justify-content-center">
+            <li>
+              <a class="text-white px-2" href="#!">
+                <i class="fab fa-facebook-square"></i>
+              </a>
+            </li>
+            <li>
+              <a class="text-white px-2" href="#!">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+            <li>
+              <a class="text-white ps-2" href="#!">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase mb-4">Animals</h5>
+
+          <ul class="list-unstyled">
+            <li class="mb-2">
+              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>When your pet is missing</a>
+            </li>
+            <li class="mb-2">
+              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Recently found</a>
+            </li>
+            <li class="mb-2">
+              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>How to adopt?</a>
+            </li>
+            <li class="mb-2">
+              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Pets for adoption</a>
+            </li>
+            <li class="mb-2">
+              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Material gifts</a>
+            </li>
+            <li class="mb-2">
+              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Help with walks</a>
+            </li>
+            <li class="mb-2">
+              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Volunteer activities</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase mb-4">Animals</h5>
+
+          <ul class="list-unstyled">
+            <li class="mb-2">
+              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>General information</a>
+            </li>
+            <li class="mb-2">
+              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>About the shelter</a>
+            </li>
+            <li class="mb-2">
+              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Statistic data</a>
+            </li>
+            <li class="mb-2">
+              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Job</a>
+            </li>
+            <li class="mb-2">
+              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Tenders</a>
+            </li>
+            <li class="mb-2">
+              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Contact</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase mb-4">Contact</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <p><i class="fas fa-map-marker-alt pe-2"></i>Warsaw, 57 Street, Poland</p>
+            </li>
+            <li>
+              <p><i class="fas fa-phone pe-2"></i>+ 01 234 567 89</p>
+            </li>
+            <li>
+              <p><i class="fas fa-envelope pe-2 mb-0"></i>contact@example.com</p>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      © 2023 Copyright. acaestoy ♥
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+</div>
+<!-- End of .container -->
 </body>
+<!-- Optional JavaScript -->
+<!-- Popper.js first, then Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>  
+<script></script></body>
 </html>

@@ -1,4 +1,312 @@
-/* Estilos generales INDEX*/
+/*index*/
+h1, h2, h3, h4,h5,h6 {
+  font-family: 'Rubik', sans-serif;
+  }
+  
+  p,span,a {
+      font-family: 'Roboto', sans-serif;
+  }
+
+img{
+  max-width: 100%;
+}
+.greybg{
+background: #f9fafb;
+}
+
+/* start header part */
+
+.our-menu{
+  list-style: none;
+}
+.our-menu li{}
+.our-menu li a {
+display: inline-block;
+padding: 0 10px;
+text-decoration: none;
+color: #111;
+font-weight: 500;
+}
+.our-menu li a:hover{
+  color: red;
+}
+.header-img img {
+width: 174px;
+}
+
+.header-search{}
+.header-search span {
+display: inline-block;
+font-size: 22px;
+margin-left: 0px;
+border-radius: 1px solid #ddd;
+border-right: 1px solid #ddd;
+text-align: center;
+width: 60px;
+margin-right: 20px;
+}
+.header-call{}
+.header-icon{}
+.header-icon span {
+font-size: 36px;
+color: red;
+}
+.header-number{}
+.header-number p{
+  color: #606060;
+}
+.header-number a{
+  color: #111;
+  text-decoration: none;
+}
+
+.btn-primary {
+margin-left: 14px;
+background: #e73c3e !important;
+border-color: #e73c3e;
+  position: relative;
+  z-index: 1;
+ 
+}
+.btn-primary::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #111;
+
+  transition: .4s;
+  z-index: -1;
+}
+
+.btn-primary:hover::after{
+  width: 100%;
+}
+/* Drodown menu */
+.our-menu li{
+  position: relative;
+}
+.our-menu li ul{
+  list-style: none;
+  position: absolute;
+  top: 160%;
+  left: 0;
+  background: #fafafa;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+  width: 200px;
+
+  opacity: 0;
+  visibility: visible;
+  transition: all .4s ease-in-out;
+}
+.our-menu li ul li{
+  padding: 10px;
+  margin-left: 0;
+}
+.our-menu li:hover ul{
+  opacity: 1;
+  visibility: visible;
+  top: 120%;
+}
+.our-menu li ul li a{}
+.our-menu li ul li a:hover{
+
+}
+
+
+
+/* Finix logo section */
+
+.logo-section {
+padding: 63px 0;
+border-bottom: 1px solid #ddd;
+}
+
+/* About section spart */
+.about-img{
+  position: relative;
+}
+
+.about-text {
+position: absolute;
+right: 0;
+bottom: 0;
+background: url(https://i.ibb.co/hKGcDGh/shape.png);
+background-repeat: no-repeat;
+background-size: contain;
+width: 200px;
+height: 200px;
+text-align: center;
+align-items: center;
+display: flex;
+justify-content: center;
+}
+.about-text-inner h1 {
+font-size: 53px;
+color: #e73c3e;
+font-weight: 600;
+}
+.about-text-inner p {
+font-weight: 500;
+}
+
+/* Finix text start */
+
+.finix-text{}
+.finix-text h6 {
+color: #e73c3e;
+font-weight: 500;
+padding: 4px 0;
+}
+.finix-text h1 {
+font-weight: 500;
+padding: 7px 0;
+}
+.finix-text p{
+  color: #606060;
+  padding: 5px 0;
+}
+.finix-menu{
+  list-style: none;
+}
+strong{
+  color: #606060;
+  padding: 10px 0;
+}
+.finix-menu li{
+  padding: 10px 0;
+  font-size: 20px;
+}
+
+.finix-menu li::before {
+content: "\f00c";
+font-family: 'Font Awesome 5 Free';
+font-weight: 600;
+display: inline-block;
+font-size: 23px;
+margin-right: 12px;
+color: #e73c3e;
+}
+
+/* Why choose us section */
+
+.why-choose-us-section{}
+
+.choose-us-item{
+padding: 20px;
+position: relative;
+overflow: hidden;
+}
+.choose-us-item::before {
+content: "";
+position: absolute;
+top: -91px;
+left: 0;
+right: 0;
+margin: auto;
+width: 90%;
+height: 50%;
+border-radius: 50%;
+background: #fdebeb;
+}
+.choose-us-img{
+position: relative;
+}
+
+.choose-icon{}
+.choose-icon span {
+display: inline-block;
+width: 80px;
+height: 80px;
+line-height: 80px;
+background: #e73c3e;
+text-align: center;
+border-radius: 50%;
+font-size: 40px;
+color: white;
+position: relative;
+right: -300px;
+bottom: 0px;
+top: -129px;
+}
+.choose-icon span::before{
+content: "";
+position: absolute;
+right: 0;
+bottom: 0;
+width: 80px;
+height: 80px;
+border-radius: 50%;
+background: #e73c3e;
+animation: humayun 4s ease-out infinite;
+}
+
+@keyframes humayun{
+0%,30%{
+  opacity: 1;
+  transform: scale(0);
+}
+
+50%{
+  opacity: .7;
+  transform: scale(1.4);
+}
+100%{
+  opacity: 0;
+  transform: scale(2);
+}
+}
+
+
+.choose-us-item span {
+display: inline-block;
+height: 100px;
+width: 100px;
+line-height: 100px;
+border-radius: 50%;
+background: #ffffff;
+font-size: 26px;
+color: #e73c3e;
+font-weight: 400;
+transition: .5s;
+position: relative;
+}
+.
+.choose-us-items{
+transition: .5s;
+}
+.choose-us-items:hover{
+transform: translateY(-10px);
+}
+.choose-us-items:hover span{
+background: #e73c3e;
+color: #ffffff;
+}
+
+.choose-us-item span {
+display: inline-block;
+height: 100px;
+width: 100px;
+line-height: 100px;
+border-radius: 50%;
+background: #ffffff;
+font-size: 26px;
+color: #e73c3e;
+font-weight: 400;
+transition: .5s;
+}
+
+.choose-us-item h1 {
+font-size: 26px;
+font-weight: 500;
+padding: 10px 0;
+}
+.choose-us-item p{
+color: #606060;
+}
+/* Estilos generales INDEX*//*
 html, body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -8,7 +316,7 @@ html, body {
   padding: 0;
 }
 
-/* Encabezado */
+/* Encabezado *//*
 header {
   background-color: #e4e6e0;
   display: flex;
@@ -48,7 +356,7 @@ nav ul li a:hover:before {
   transform: scaleX(1);
 }
 
-/* Pie de página */
+/* Pie de página
 footer {
   background-color: #e4e6e0;
   color: #fff;
@@ -106,12 +414,12 @@ nav ul li a:hover {
   color: #f0f0f0;
 }
 
-/* Contenido principal */
+/* Contenido principal 
 #banner img {
   width: 100%;
 }
 
-/* Pie de página */
+/* Pie de página 
 footer {
   background-color: #e4e6e0;
   color: #333;
@@ -153,7 +461,7 @@ footer {
   font-size: 1.5rem;
 }
 
-/* Estilos para dispositivos móviles */
+/* Estilos para dispositivos móviles
 @media only screen and (max-width: 767px) {
   header {
     flex-direction: column;
@@ -180,68 +488,68 @@ footer {
 
 /* Estilo de las cards */
 
-/* Estilo general para las tarjetas */
+/* Estilo general para las tarjetas 
 .card {
-  width: calc(33.3333% - 10px); /* Tres tarjetas por fila */
+  width: calc(33.3333% - 10px); /* Tres tarjetas por fila 
   margin-right: 10px;
-  display: flex; /* Contenedor flexible para alinear el contenido */
-  flex-direction: column; /* Colocar el contenido en columna */
-  align-items: center; /* Alinear el contenido horizontalmente */
-  background-color: #f4f4f4; /* Color de fondo claro */
-  border-radius: 8px; /* Bordes redondeados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
-  overflow: hidden; /* Ocultar contenido que sobresalga */
-  transition: all 0.3s ease-in-out; /* Transición suave al hacer hover */
+  display: flex; /* Contenedor flexible para alinear el contenido 
+  flex-direction: column; /* Colocar el contenido en columna 
+  align-items: center; /* Alinear el contenido horizontalmente 
+  background-color: #f4f4f4; /* Color de fondo claro 
+  border-radius: 8px; /* Bordes redondeados 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra
+  overflow: hidden; /* Ocultar contenido que sobresalga 
+  transition: all 0.3s ease-in-out; /* Transición suave al hacer hover 
   display: flex;
 }
 
-/* Estilo para el título de la tarjeta */
+/* Estilo para el título de la tarjeta 
 .card h3 {
-  margin: 10px 0; /* Margen arriba y abajo */
-  font-size: 20px; /* Tamaño de la fuente */
-  font-weight: 600; /* Grueso de la fuente */
-  text-align: center; /* Alinear el texto al centro */
-  color: #333; /* Color del texto */
+  margin: 10px 0; /* Margen arriba y abajo 
+  font-size: 20px; /* Tamaño de la fuente
+  font-weight: 600; /* Grueso de la fuente 
+  text-align: center; /* Alinear el texto al centro 
+  color: #333; /* Color del texto 
 }
 
-/* Estilo para el resto del contenido de la tarjeta */
+/* Estilo para el resto del contenido de la tarjeta 
 .card p {
-  margin: 10px; /* Margen en todos los lados */
-  font-size: 16px; /* Tamaño de la fuente */
-  color: #777; /* Color del texto */
-  line-height: 1.5; /* Espaciado entre líneas */
+  margin: 10px; /* Margen en todos los lados 
+  font-size: 16px; /* Tamaño de la fuente 
+  color: #777; /* Color del texto 
+  line-height: 1.5; /* Espaciado entre líneas 
 }
 
-/* Estilo para el link de contacto */
+/* Estilo para el link de contacto 
 .card a {
-  font-size: 16px; /* Tamaño de la fuente */
-  font-weight: 600; /* Grueso de la fuente */
-  color: #78bb07; /* Color del texto */
-  text-decoration: none; /* Quitar subrayado del link */
-  transition: color 0.3s ease-in-out; /* Transición suave al hacer hover */
+  font-size: 16px; /* Tamaño de la fuente 
+  font-weight: 600; /* Grueso de la fuente 
+  color: #78bb07; /* Color del texto 
+  text-decoration: none; /* Quitar subrayado del link 
+  transition: color 0.3s ease-in-out; /* Transición suave al hacer hover 
 }
 
-/* Estilo para la imagen de la tarjeta */
+/* Estilo para la imagen de la tarjeta 
 .card img {
 
-  border-radius: 8px 8px 0 0; /* Bordes redondeados en la parte superior */
+  border-radius: 8px 8px 0 0; /* Bordes redondeados en la parte superior 
 }
 
-/* Estilo para el hover de las tarjetas */
+/* Estilo para el hover de las tarjetas 
 .card:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más oscura al hacer hover */
-}
+
 
 /* Estilo para el hover del link de contacto */
-.card a:hover {
-  color: #5e5e5e; /* Color más oscuro al hacer hover */
+.card a:hover /*
+  color: #5e5e5e; /* Color más oscuro al hacer hover 
 }
 
 .card-container{
   display: flex;
 
 }
-/* Estilo para hacer la página responsive */
+/* Estilo para hacer la página responsive 
 @media only screen and (max-width: 600px) {
   body {
     flex-direction: column;
@@ -249,17 +557,17 @@ footer {
 
 }
 
-/* Ocultar todas las tarjetas por defecto */
+/* Ocultar todas las tarjetas por defecto 
  .card {
   display: none;
 }
 
-/* Mostrar todas las tarjetas al cargar la página */
+/* Mostrar todas las tarjetas al cargar la página 
 .card {
   display: block;
 }
 
-/* Ocultar las tarjetas al desmarcar un checkbox */
+/* Ocultar las tarjetas al desmarcar un checkbox 
 #filtro-gatos:not(:checked) ~ .card[data-type="gato"],
 #filtro-perros:not(:checked) ~ .card[data-type="perro"],
 #filtro-madrid:not(:checked) ~ .card[data-city="madrid"],
