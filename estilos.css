@@ -311,7 +311,9 @@ color: #606060;
   justify-content: center;
   display: flex;
 }
-
+.choose-us-img{
+  max-width: 100%;
+}
 //*filtro busqueda formularis*//
 
 /* Estilos generales INDEX*//*
