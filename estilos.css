@@ -307,6 +307,11 @@ padding: 10px 0;
 color: #606060;
 }
 
+.jotform-formulario{
+  justify-content: center;
+  display: flex;
+}
+
 //*filtro busqueda formularis*//
 
 /* Estilos generales INDEX*//*
