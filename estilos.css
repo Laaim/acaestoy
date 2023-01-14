@@ -1,3 +1,170 @@
+/*HEADER*/
+.logoHeader{
+  margin: 15px;
+}
+/*NAV*/
+nav ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  justify-items: flex-end;
+  padding: 15px;
+  background-color: #e0a4b6;
+}
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+/*BANNER*/
+.imagenBanner{
+  max-width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  grid-area:imagenBanner;
+}
+.gridBanner{
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-areas: 
+  ". textoBanner imagenBanner"
+  ". botonesBanner imagenBanner";
+  align-items: center;
+}
+.textoBanner{
+  grid-area: textoBanner;
+  padding: 37px;
+  position: absolute;
+  background-color: white;
+
+}
+
+.botonesBanner{
+  grid-area:botonesBanner;
+}
+.bn13 {
+  display: inline-block;
+  padding: 0.65em 1.6em;
+  border: 3px solid #000000;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #000000;
+  text-align: center;
+  transition: all 0.2s;
+  animation: bn13bouncy 5s infinite linear;
+  position: relative;
+}
+
+.bn13:hover {
+  background-color: white;
+  color: #000000;
+}
+/*HOVER NAV*/
+
+@keyframes bn13bouncy {
+  0% {
+    top: 0em;
+  }
+  40% {
+    top: 0em;
+  }
+  43% {
+    top: -0.9em;
+  }
+  46% {
+    top: 0em;
+  }
+  48% {
+    top: -0.4em;
+  }
+  50% {
+    top: 0em;
+  }
+  100% {
+    top: 0em;
+  }
+}
+
+.textoIndex{
+  display: flex;
+  justify-content: center;
+}
+
+/*PASOS*/
+.pasos{
+  display: flex;
+  justify-content: center;
+}
+.pasoUno{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+.pasoDos{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+.pasoTres{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+.pasoTres{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+.pasoCuatro{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+/*MEDIA QUERIES*/
+/*HEADER*/
+@media only screen and (max-width: 767px){
+.logoHeader{max-width: 100%;
+display: flex;
+justify-content: center;
+margin: 10px;}
+header{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+nav{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  background-color: white;
+}
+ul{
+  flex-direction: column;
+  display: flex;
+  margin: 30px;
+  text-align: center;
+}
+
+.pasos{
+  display: flex;
+  flex-direction: column;
+}}
+
 /*index*/
 h1, h2, h3, h4,h5,h6 {
   font-family: 'Rubik', sans-serif;
@@ -10,582 +177,4 @@ h1, h2, h3, h4,h5,h6 {
 img{
   max-width: 100%;
 }
-.greybg{
-background: #f9fafb;
-}
-
-/* start header part */
-
-.our-menu{
-  list-style: none;
-}
-.our-menu li{}
-.our-menu li a {
-display: inline-block;
-padding: 0 10px;
-text-decoration: none;
-color: #111;
-font-weight: 500;
-}
-.our-menu li a:hover{
-  color: red;
-}
-.header-img img {
-width: 174px;
-}
-
-.header-search{}
-.header-search span {
-display: inline-block;
-font-size: 22px;
-margin-left: 0px;
-border-radius: 1px solid #ddd;
-border-right: 1px solid #ddd;
-text-align: center;
-width: 60px;
-margin-right: 20px;
-}
-.header-call{}
-.header-icon{}
-.header-icon span {
-font-size: 36px;
-color: red;
-}
-.header-number{}
-.header-number p{
-  color: #606060;
-}
-.header-number a{
-  color: #111;
-  text-decoration: none;
-}
-
-.btn-primary {
-margin-left: 14px;
-background: #e73c3e !important;
-border-color: #e73c3e;
-  position: relative;
-  z-index: 1;
- 
-}
-.btn-primary::after{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background: #111;
-
-  transition: .4s;
-  z-index: -1;
-}
-
-.btn-primary:hover::after{
-  width: 100%;
-}
-/* Drodown menu */
-.our-menu li{
-  position: relative;
-}
-.our-menu li ul{
-  list-style: none;
-  position: absolute;
-  top: 160%;
-  left: 0;
-  background: #fafafa;
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
-  width: 200px;
-
-  opacity: 0;
-  visibility: visible;
-  transition: all .4s ease-in-out;
-}
-.our-menu li ul li{
-  padding: 10px;
-  margin-left: 0;
-}
-.our-menu li:hover ul{
-  opacity: 1;
-  visibility: visible;
-  top: 120%;
-}
-.our-menu li ul li a{}
-.our-menu li ul li a:hover{
-
-}
-
-
-
-/* Finix logo section */
-
-.logo-section {
-padding: 63px 0;
-border-bottom: 1px solid #ddd;
-}
-
-/* About section spart */
-.about-img{
-  position: relative;
-}
-
-.about-text {
-position: absolute;
-right: 0;
-bottom: 0;
-background: url(https://i.ibb.co/hKGcDGh/shape.png);
-background-repeat: no-repeat;
-background-size: contain;
-width: 200px;
-height: 200px;
-text-align: center;
-align-items: center;
-display: flex;
-justify-content: center;
-}
-.about-text-inner h1 {
-font-size: 53px;
-color: #e73c3e;
-font-weight: 600;
-}
-.about-text-inner p {
-font-weight: 500;
-}
-
-/* Finix text start */
-
-.finix-text{}
-.finix-text h6 {
-color: #e73c3e;
-font-weight: 500;
-padding: 4px 0;
-}
-.finix-text h1 {
-font-weight: 500;
-padding: 7px 0;
-}
-.finix-text p{
-  color: #606060;
-  padding: 5px 0;
-}
-.finix-menu{
-  list-style: none;
-}
-strong{
-  color: #606060;
-  padding: 10px 0;
-}
-.finix-menu li{
-  padding: 10px 0;
-  font-size: 20px;
-}
-
-.finix-menu li::before {
-content: "\f00c";
-font-family: 'Font Awesome 5 Free';
-font-weight: 600;
-display: inline-block;
-font-size: 23px;
-margin-right: 12px;
-color: #e73c3e;
-}
-
-/* Why choose us section */
-
-.why-choose-us-section{}
-
-.choose-us-item{
-padding: 20px;
-position: relative;
-overflow: hidden;
-}
-.choose-us-item::before {
-content: "";
-position: absolute;
-top: -91px;
-left: 0;
-right: 0;
-margin: auto;
-width: 90%;
-height: 50%;
-border-radius: 50%;
-background: #fdebeb;
-}
-.choose-us-img{
-position: relative;
-}
-
-.choose-icon{}
-.choose-icon span {
-display: inline-block;
-width: 80px;
-height: 80px;
-line-height: 80px;
-background: #e73c3e;
-text-align: center;
-border-radius: 50%;
-font-size: 40px;
-color: white;
-position: relative;
-right: -300px;
-bottom: 0px;
-top: -129px;
-}
-.choose-icon span::before{
-content: "";
-position: absolute;
-right: 0;
-bottom: 0;
-width: 80px;
-height: 80px;
-border-radius: 50%;
-background: #e73c3e;
-animation: humayun 4s ease-out infinite;
-}
-
-@keyframes humayun{
-0%,30%{
-  opacity: 1;
-  transform: scale(0);
-}
-
-50%{
-  opacity: .7;
-  transform: scale(1.4);
-}
-100%{
-  opacity: 0;
-  transform: scale(2);
-}
-}
-
-
-.choose-us-item span {
-display: inline-block;
-height: 100px;
-width: 100px;
-line-height: 100px;
-border-radius: 50%;
-background: #ffffff;
-font-size: 26px;
-color: #e73c3e;
-font-weight: 400;
-transition: .5s;
-position: relative;
-}
-.
-.choose-us-items{
-transition: .5s;
-}
-.choose-us-items:hover{
-transform: translateY(-10px);
-}
-.choose-us-items:hover span{
-background: #e73c3e;
-color: #ffffff;
-}
-
-.choose-us-item span {
-display: inline-block;
-height: 100px;
-width: 100px;
-line-height: 100px;
-border-radius: 50%;
-background: #ffffff;
-font-size: 26px;
-color: #e73c3e;
-font-weight: 400;
-transition: .5s;
-}
-
-.choose-us-item h1 {
-font-size: 26px;
-font-weight: 500;
-padding: 10px 0;
-}
-.choose-us-item p{
-color: #606060;
-}
-
-.jotform-formulario{
-  justify-content: center;
-  display: flex;
-}
-.choose-us-img{
-  max-width: 100%;
-}
-//*filtro busqueda formularis*//
-
-/* Estilos generales INDEX*//*
-html, body {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #333;
-  margin: 0;
-  padding: 0;
-}
-
-/* Encabezado *//*
-header {
-  background-color: #e4e6e0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-}
-
-#logo img {
-  height: 60px;
-}
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.2s ease-in-out;
-}
-
-nav ul li a:before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #fff;
-  visibility: hidden;
-  -webkit-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transition: all 0.3s ease-in-out 0s;
-  transition: all 0.3s ease-in-out 0s;
-}
-
-nav ul li a:hover:before {
-  visibility: visible;
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
-}
-
-/* Pie de página
-footer {
-  background-color: #e4e6e0;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-}
-
-#links .column ul li a {
-  color: #2c2b2b;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-}
-
-#links .column ul li a:before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #fff;
-  visibility: hidden;
-  -webkit-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transition: all 0.3s ease-in-out 0s;
-  transition: all 0.3s ease-in-out 0s;
-}
-
-#links .column ul li a:hover:before {
-  visibility: visible;
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
-}
-nav ul {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li {
-  margin: 0 1rem;
-}
-
-nav ul li a {
-  color: #333;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.2s ease-in-out;
-}
-
-nav ul li a:hover {
-  color: #f0f0f0;
-}
-
-/* Contenido principal 
-#banner img {
-  width: 100%;
-}
-
-/* Pie de página 
-footer {
-  background-color: #e4e6e0;
-  color: #333;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-}
-
-#logo-footer img {
-  height: 60px;
-}
-
-#links {
-  display: flex;
-}
-
-#links .column ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-#links .column ul li {
-  margin: 0.5rem 0;
-}
-
-#links .column ul li a {
-  color: #333;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-}
-
-#links .column ul li a:hover {
-  color: #f0f0f0;
-}
-
-#links .column ul li a i {
-  font-size: 1.5rem;
-}
-
-/* Estilos para dispositivos móviles
-@media only screen and (max-width: 767px) {
-  header {
-    flex-direction: column;
-  }
-
-  nav ul {
-    flex-direction: column;
-  }
-
-  nav ul li {
-    margin: 0.5rem 0;
-  }
-
-  #links .column {
-    width: 100%;
-  }
-}
-
-/*CSS PERDIDAS*/
-
-
-
-
-
-/* Estilo de las cards */
-
-/* Estilo general para las tarjetas 
-.card {
-  width: calc(33.3333% - 10px); /* Tres tarjetas por fila 
-  margin-right: 10px;
-  display: flex; /* Contenedor flexible para alinear el contenido 
-  flex-direction: column; /* Colocar el contenido en columna 
-  align-items: center; /* Alinear el contenido horizontalmente 
-  background-color: #f4f4f4; /* Color de fondo claro 
-  border-radius: 8px; /* Bordes redondeados 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra
-  overflow: hidden; /* Ocultar contenido que sobresalga 
-  transition: all 0.3s ease-in-out; /* Transición suave al hacer hover 
-  display: flex;
-}
-
-/* Estilo para el título de la tarjeta 
-.card h3 {
-  margin: 10px 0; /* Margen arriba y abajo 
-  font-size: 20px; /* Tamaño de la fuente
-  font-weight: 600; /* Grueso de la fuente 
-  text-align: center; /* Alinear el texto al centro 
-  color: #333; /* Color del texto 
-}
-
-/* Estilo para el resto del contenido de la tarjeta 
-.card p {
-  margin: 10px; /* Margen en todos los lados 
-  font-size: 16px; /* Tamaño de la fuente 
-  color: #777; /* Color del texto 
-  line-height: 1.5; /* Espaciado entre líneas 
-}
-
-/* Estilo para el link de contacto 
-.card a {
-  font-size: 16px; /* Tamaño de la fuente 
-  font-weight: 600; /* Grueso de la fuente 
-  color: #78bb07; /* Color del texto 
-  text-decoration: none; /* Quitar subrayado del link 
-  transition: color 0.3s ease-in-out; /* Transición suave al hacer hover 
-}
-
-/* Estilo para la imagen de la tarjeta 
-.card img {
-
-  border-radius: 8px 8px 0 0; /* Bordes redondeados en la parte superior 
-}
-
-/* Estilo para el hover de las tarjetas 
-.card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más oscura al hacer hover */
-
-
-/* Estilo para el hover del link de contacto */
-.card a:hover /*
-  color: #5e5e5e; /* Color más oscuro al hacer hover 
-}
-
-.card-container{
-  display: flex;
-
-}
-/* Estilo para hacer la página responsive 
-@media only screen and (max-width: 600px) {
-  body {
-    flex-direction: column;
-  }
-
-}
-
-/* Ocultar todas las tarjetas por defecto 
- .card {
-  display: none;
-}
-
-/* Mostrar todas las tarjetas al cargar la página 
-.card {
-  display: block;
-}
-
-/* Ocultar las tarjetas al desmarcar un checkbox 
-#filtro-gatos:not(:checked) ~ .card[data-type="gato"],
-#filtro-perros:not(:checked) ~ .card[data-type="perro"],
-#filtro-madrid:not(:checked) ~ .card[data-city="madrid"],
-#filtro-barcelona:not(:checked) ~ .card[data-city="barcelona"],
-#filtro-blanco:not(:checked) ~ .card[data-color="blanco"],
-#filtro-negro:not(:checked) ~ .card[data-color="negro"] {
-  display: none;
-}
-
-/*probando*/
 

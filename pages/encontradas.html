@@ -1,139 +1,36 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-      <!-- Google Fonts -->
-      <link rel="preconnect" href="https://fonts.gstatic.com">
-      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-  
-      <!-- Font Awesome CDN -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- Custom css -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./finix.css">
-    <link rel="stylesheet" href="../estilos.css">
-
-<script>// JavaScript
-    function filterResults() {
-      // Obtenemos el valor escrito en la barra de búsqueda
-      var searchValue = document.getElementById('search').value.toLowerCase();
-    
-      // Obtenemos los valores seleccionados en los filtros
-      var petType = document.getElementById('pet-type').value;
-      var petCity = document.getElementById('pet-city').value;
-      var petColor = document.getElementById('pet-color').value;
-    
-      // Iteramos sobre cada una de las respuestas del formulario
-      var responses = document.querySelectorAll('.jf-response');
-      for (var i = 0; i < responses.length; i++) {
-        var response = responses[i];
-    
-        // Mostramos o ocultamos la respuesta según corresponda
-        if (matchesFilters(response, searchValue, petType, petCity, petColor)) {
-          response.style.display = 'block';
-        } else {
-          response.style.display = 'none';
-        }
-      }
-    }
-    
-    function matchesFilters(response, searchValue, petType, petCity, petColor) {
-      // Comprobamos si la respuesta coincide con el valor escrito en la barra de búsqueda
-      if (searchValue) {
-        var description = response.querySelector('.jf-description').textContent.toLowerCase();
-        if (description.indexOf(searchValue) === -1) {
-          return false;
-        }
-      }
-    
-      // Comprobamos si la respuesta coincide con el tipo de mascota seleccionado
-      if (petType) {
-        var type = response.querySelector('.jf-pet-type').textContent.toLowerCase();
-        if (type !== petType) {
-          return false;
-        }
-      }
-    
-      // Comprobamos si la respuesta coincide con la ciudad seleccionada
-      if (petCity) {
-        var city = response.querySelector('.jf-pet-city').textContent.toLowerCase();
-        if (city !== petCity) {
-          return false;
-        }
-      }
-    
-      // Comprobamos si la respuesta coincide con el color de pelaje seleccionado
-      if (petColor) {
-        var color = response.querySelector('.jf-pet-color').textContent.toLowerCase();
-        if (color !== petColor) {
-          return false;
-        }
-      }
-    
-      // Si la respuesta coincide con todos los filtros, la devolvemos
-      return true;
-    }
-     </script>
-    <title>Acaestoy - Mascotas perdidas y encontradas</title>
+    <link rel="stylesheet"href="../estilos.css">
+    <title>Acaestoy - Sobre nosotros</title>
+    <title>Acaestoy - Mascotas perdidas </title>
   </head>
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="../index.html"><img src="../assets/logopequeno.png"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sobrenos.html">Sobre <strong> acaestoy</strong></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="funcionamiento.html">¿Cómo funciona?</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Mascotas perdidas o encontradas
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#"></a>
-              </li>
-              <li><a class="dropdown-item" href="perdidas.html">Mascotas Perdidas</a></li>
-              <li><a class="dropdown-item" href="encontradas.html">Mascotas Encontradas</a></li>
-            </ul>
-            
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
-<main>
-    /<section class="about-section py-5">
-      <div class="container">
-       <div class="row">
-           
-           <div class="col-12">
-               <div class="finix-text">
-                  <h6>Gracias por difundir la imagen de la mascota encontrada.</h6>
-                  <h1>Por favor, completa el siguiente formulario para que pueda encontrar a su dueño pronto</h1>
-                  <p>El mismo será publicado en nuestro sitio a la brevedad.</p>
-                  <strong>Por favor, chequea que todos los datos estén colocados correctamente.</strong>
-               </div>
-           </div>
-       </div>
-      </div>
-  </section>
-  
+  <body>
+    <header>
+      <nav>
+        <div class="logoHeader"><a href="/index.html"><img src="../assets/logopequeno.jpg" alt="logo Acaestoy"></a></div>
+        <ul>
+        <li><a href="sobrenos.html"></a></li>
+        <li><a href="funcionamiento.html"></a></li>
+        <li><a href="perdidas.html">Mascotas Perdidas</a></li>
+        <li><a href="encontradas.html">Mascotas Encontradas</a></li>
+      </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="gridBanner">
+        <div class="imagenBanner">
+          <img src="../assets/banner.png" alt="fotografia de perro">
+          </div>
+          <div class="textoBanner">
+            <h1>Lamentamos que hayas perdido a tu mascota</h1>
+            <p>Por favor, completa el siguiente formulario para poder ayudarte a encontrarla. El mismo será publicado en nuestro sitio a la brevedad.</p>
+            <p>Por favor, chequea que todos los datos estén colocados correctamente.</p>
+          </div>
+        </div>
+    
 
   <script src="https://cdn03.jotfor.ms/static/prototype.forms.js?3.3.38606" type="text/javascript"></script>
   <script src="https://cdn01.jotfor.ms/static/jotform.forms.js?3.3.38606" type="text/javascript"></script>
@@ -197,6 +94,7 @@
           color:rgb(50, 50, 50) !important;
           font-family:'Roboto';
           font-size:14px;
+          align-items: center
       }
   </style>
   
@@ -1210,138 +1108,10 @@
   </form><script type="text/javascript">JotForm.ownerView=true;</script>
 </div>
 
-
-
   <div class="jotform-table-embed" style="width: 100%; height: 600px;" data-id="230073496672056" data-type="interactive"></div><script>(function(doc, id){var scripts=doc.getElementsByTagName("script")[0]; if (!doc.getElementById(id)){var script=doc.createElement("script"); script.async=1; script.id=id; script.src="https://cdn.jotfor.ms/common/tableEmbed.js"; scripts.parentNode.insertBefore(script, scripts);}})(document, "jotform-async");</script>
   </main>
-
-  <footer class="bg-primary text-center text-lg-start text-white">
-    <!-- Grid container -->
-    <div class="container p-4">
-      <!--Grid row-->
-      <div class="row my-4">
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-
-          <div class="rounded-circle bg-white shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto" style="width: 150px; height: 150px;">
-            <img src="../assets/logopequeno.png" height="70" alt=""
-                 loading="lazy" />
-          </div>
-
-          <p class="text-center">"Un lugar donde encontrar a tu mascota perdida o ayudar a reunir a otras mascotas con sus dueños</p>
-
-          <ul class="list-unstyled d-flex flex-row justify-content-center">
-            <li>
-              <a class="text-white px-2" href="#!">
-                <i class="fab fa-facebook-square"></i>
-              </a>
-            </li>
-            <li>
-              <a class="text-white px-2" href="#!">
-                <i class="fab fa-instagram"></i>
-              </a>
-            </li>
-            <li>
-              <a class="text-white ps-2" href="#!">
-                <i class="fab fa-youtube"></i>
-              </a>
-            </li>
-          </ul>
-
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase mb-4">Mascotas</h5>
-
-          <ul class="list-unstyled">
-            <li class="mb-2">
-              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>¿Qué hacer si se perdió tu mascota</a>
-            </li>
-            <li class="mb-2">
-              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Mascotas encontradas</a>
-            </li>
-            <li class="mb-2">
-              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Mascotas perdidas</a>
-            </li>
-            <li class="mb-2">
-              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i></a>
-            </li>
-            <li class="mb-2">
-              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i></a>
-            </li>
-            <li class="mb-2">
-              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i></a>
-            </li>
-            <li class="mb-2">
-              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i></a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase mb-4">acaestoy</h5>
-
-          <ul class="list-unstyled">
-            <li class="mb-2">
-              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Sobre acaestoy</a>
-            </li>
-            <li class="mb-2">
-              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>¿Cómo funciona?</a>
-            </li>
-            <li class="mb-2">
-              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i></a>
-            </li>
-            <li class="mb-2">
-              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i></a>
-            </li>
-            <li class="mb-2">
-              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i></a>
-            </li>
-            <li class="mb-2">
-              <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i></a>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase mb-4"></h5>
-
-          <ul class="list-unstyled">
-            <li>
-              <p><i class="fas fa-map-marker-alt pe-2"></i></p>
-            </li>
-            <li>
-              <p><i class="fas fa-phone pe-2"></i></p>
-            </li>
-            <li>
-              <p><i class="fas fa-envelope pe-2 mb-0"></i></p>
-            </li>
-          </ul>
-        </div>
-        <!--Grid column-->
-      </div>
-      <!--Grid row-->
-    </div>
-    <!-- Grid container -->
-
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-      © 2023 Copyright. acaestoy ♥
-    </div>
-    <!-- Copyright -->
+  <footer>
+    <div class="logoHeader"><img src="../assets/logopequeno.jpg" alt="logo Acaestoy"></div>
   </footer>
-
-</div>
-<!-- End of .container -->
-</body>
-<!-- Optional JavaScript -->
-<!-- Popper.js first, then Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>  </body>
-</html>
+  </body>
+  </html>

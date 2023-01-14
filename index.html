@@ -1,366 +1,64 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <!-- Required meta tags -->
+    <title>acaestoy - Mascotas Perdidas y Encontradas</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-      <!-- Google Fonts -->
-      <link rel="preconnect" href="https://fonts.gstatic.com">
-      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-  
-      <!-- Font Awesome CDN -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- Custom css -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./finix.css">
-
-    <title>Acaestoy - Mascotas perdidas y encontradas</title>
+    <link rel="stylesheet" href="./estilos.css">
   </head>
+
   <body>
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"><img src="assets/logopequeno.png"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Sobre <strong> acaestoy</strong></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/funcionamiento.html">¿Cómo funciona?</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Mascotas perdidas o encontradas
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#"></a>
-              </li>
-              <li><a class="dropdown-item" href="pages/perdidas.html">Mascotas Perdidas</a></li>
-              <li><a class="dropdown-item" href="pages/encontradas.html">Mascotas Encontradas</a></li>
-            </ul>
-            
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
+    <header>
+      <nav>
+        <div class="logoHeader"><a href="#"><img src="assets/logopequeno.jpg" alt="logo Acaestoy"></a></div>
+        <ul>
+        <li><a href="./pages/sobrenos.html"></a></li>
+        <li><a href="./pages/funcionamiento.html"></a></li>
+        <li><a href="./pages/perdidas.html">Mascotas Perdidas</a></li>
+        <li><a href="./pages/encontradas.html">Mascotas Encontradas</a></li>
+      </ul>
+      </nav>
+    </header>
 
- <div class="container">
-    <div class="card mt-2 mb-5">
-      <div class="card-body p-md-5 py-xl-5 px-xl-5">
-        <div class="row gx-lg-5 gx-xl-0 gy-5 align-items-center">
-          <div class="col-lg-6 order-lg-2 d-flex position-relative">
-            <img class="img-fluid ms-auto mx-auto me-lg-5" src="assets/banner.jpg"  alt="">
-            <div>
-              <div class="card shadow-lg position-absolute" style="bottom: 10%; right: -3%;">
-                <div class="card-body py-4 px-5">
-                  <div class="d-flex flex-row align-items-center">
-                    <div>
-                      <div class="icon btn rounded-pill btn-primary disabled mx-auto me-4">  <i class="lni lni-users"></i> </div>
-                    </div>
-                    <div>
-                      <h3 class="mb-0 text-nowrap fw-bold"></h3>
-                      <p class="mb-0 text-nowrap"></p>
-                    </div>
-                  </div>
-                </div>
-                <!--/.card-body -->
+    <main>
+      <div class="gridBanner">
+        <div class="imagenBanner">
+          <img src="assets/banner.png" alt="fotografia de perro">
+          </div>
+          <div class="textoBanner">
+            <h1>Uniendo a mascotas perdidas con sus dueños</h1>
+            <p>Ayudanos a reunir a las mascotas con sus familias 🐾 </p>
+            <div class="botonesBanner">
+              <a href="./pages/perdidas.html" class="bn13">PERDI A MI MASCOTA</a>
+              <a href="./pages/encontradas.html" class="bn13">ENCONTRÉ A UNA MASCOTA</a>
+            </div>
+          </div>
+        </div>
+        <div class="textoIndex">
+          <h2><strong>Cómo funciona</strong></h2>
+          <img src="assets/logopequeno.jpg" alt="logo Acaestoy">
+        </div>
+      <div class="pasos">
+        <div class="pasoUno">
+        <img src="./assets/paso1.png" alt="icono completar formulario">
+        <p>Completa el formulario que está en nuestro sitio</p>
+        </div>
+        <div class="pasoDos">
+          <img src="./assets/paso2.png" alt="icono base de datos">
+          <p>Almacenamos el formulario en nuestra base de datos</p>
+          </div>
+          <div class="pasoTres">
+            <img src="./assets/paso3.png" alt="icono perfil de mascota">
+            <p>Subimos automáticamente el formulario en nuestro sitio</p>
+            </div>
+            <div class="pasoCuatro">
+              <img src="./assets/paso4.png" alt="icono lupa">
+              <p>Buscas a tu mascota aplicando los filtros</p>
               </div>
-              <!--/.card -->
-            </div>
-            <!--/div -->
-          </div>
-          <!--/column -->
-          <div class="col-lg-6 text-center text-lg-start">
-            <h1 class="display-4 mb-4">Un hogar sin tu mejor amigo es un hogar incompleto</h1>
-            <p class="lead mb-5 pe-xl-10">as mascotas son una parte integral de nuestras vidas y que su ausencia puede dejar un vacío en nuestros hogares. </p>
-            <div class="d-flex justify-content-center justify-content-lg-start">
-             <a href="pages/perdidas.html" class="btn btn-primary btn-lg rounded mx-2 px-4">Mi mascota se perdió</a>
-             <a href="pages/encontradas.html" class="btn btn-outline-primary btn-lg rounded mx-2 px-4">Encontré a una mascota</a>
-            </div>
-          </div>
-          <!--/column -->
-        </div>
-        <!--/.row -->
       </div>
-      <!--/.card-body -->
-    </div>
-    <!--/.card -->
-  </div>
-  <!-- /.container -->
-
-    <!-- Finix- logo section -->
-
-    <section class="logo-section">
-    <div class="container">
-        <div class="row">
-            
-            <div class="col-lg-3">
-                <div class="logo-item">
-                    <img src="assets/logopequeno.png" alt="">
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="logo-item">
-                    <img src="assets/logopequeno.png" alt="">
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="logo-item">
-                    <img src="assets/logopequeno.png" alt="">
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="logo-item">
-                    <img src="assets/logopequeno.png" alt="">
-                </div>
-            </div>
-            
-        </div>
-    </div>
-    </section>
-
-    <!-- About section start -->
-
-    <section class="about-section py-5">
-        <div class="container">
-         <div class="row">
-             <div class="col-lg-6">
-                 <div class="about-img">
-                  <img src="assets/imagenindex.jpg" class="img-thumbnail" alt="...">
-                     <div class="about-text">
-                     </div>
-                 </div>
-             </div>
-             <div class="col-lg-6">
-                 <div class="finix-text">
-                    <h6>¡¡Acá estoy!!</h6>
-                    <h1>No te has sentido alguna vez perdido?</h1>
-                    <p>Imagina lo que deben sentir los dueños de las mascotas perdidas, a quienes les falta un miembro muy importante de su familia.</p>
-                    <strong>Aquí tienes 3 formas de ayudar:</strong>
-                    <ul class="finix-menu">
-                        <li>Completa nuestro formulario y ayuda a reunir a las mascotas perdidas con sus dueños.</li>
-                        <li>Comparte nuestra página con tus amigos y familiares.</li>
-                        <li>Únete a la causa y demuestra que, juntos, podemos hacer una gran diferencia.</li>
-                    </ul>
-                    <div class="header-btn">
-                        <a class="btn btn-primary btn-lg" href="#">Llenar Formulario</a>
-                    </div>
-                 </div>
-             </div>
-         </div>
-        </div>
-    </section>
-
-    <!-- Why Choose us -->
-
-    <section class="why-choose-us-section greybg py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="choose-us-text">
-                        <div class="finix-text">
-                            <h6>Acá estoy</h6>
-                            <h1>Por qué sumarse a la causa</h1>
-                            <p>Es común que muchas mascotas se pierdan cada día debido a diversas razones, como la fuga de sus hogares, el abandono o el secuestro. Algunas mascotas pueden encontrar su camino de regreso a casa por sí mismas, mientras que otras necesitan la ayuda de sus dueños y de la comunidad para ser reunidas con ellos.</p>
-                        </div>
-                        
-                        <div class="choose-us-img">
-                          <img src="assets/imagenindex3.jpg" class="img-thumbnail" alt="...">
-                            <div class="choose-icon">
-                                <a href="#"> <span><i class="fas fa-play-circle"></i></span> </a>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                   <div class="row">
-                      
-                    <div class="col-lg-6">
-                        <div class="choose-us-items text-center">
-                            <div class="choose-us-item"> 
-                                <span><i class="fas f-a-percent"> </i> </span>
-                                <h1>Demostrar tu amor por los animales</h1>
-                                <p>Ayudar a encontrar a las mascotas perdidas es una forma de contribuir a la comunidad y hacer una diferencia positiva en la vida de otras personas. </p>
-                            </div>
-                        </div>
-                       </div>
-                    <div class="col-lg-6">
-                        <div class="choose-us-items text-center">
-                            <div class="choose-us-item"> 
-                                <span><i class="fas fa-per-cent"> </i> </span>
-                                <h1>Ayudar a reunir a familias separadas</h1>
-                                <p>Una mascota puede ser un miembro importante de la familia y su pérdida puede ser muy dolorosa para todos. Al colaborar en la búsqueda de una mascota perdida, puedes ayudar a reunir a una familia separada y devolver un poco de felicidad a su vida. </p>
-                            </div>
-                        </div>
-                       </div>
-                    <div class="col-lg-6">
-                        <div class="choose-us-items text-center">
-                            <div class="choose-us-item"> 
-                                <span> <i class="fas fa-perc+ent"> </i> </span>
-                                <h1>Contribuir a una comunidad amigable con las mascotas</h1>
-                                <p>Colaborar en la búsqueda de una mascota perdida es una manera de demostrar tu compromiso con la comunidad y con los derechos de las mascotas. Al trabajar juntos para encontrar a una mascota perdida, puedes ayudar a fomentar una comunidad más amigable con las mascotas y más dispuesta a cuidar de ellas. </p>
-                            </div>
-                        </div>
-                       </div>
-                    <div class="col-lg-6">
-                        <div class="choose-us-items text-center">
-                            <div class="choose-us-item"> 
-                                <span> <i class="fas fa-perce-nt"> </i> </span>
-                                <h1>Fomentar la responsabilidad cívica y el compromiso social</h1>
-                                <p>Colaborar en la búsqueda de una mascota perdida es una manera de demostrar responsabilidad cívica y compromiso social. Al trabajar juntos para encontrar a una mascota perdida, puedes contribuir a una comunidad más unida y comprometida y puedes sentirte parte de algo más grande que tú mismo.</p>
-                            </div>
-                        </div>
-                       </div>
-
-                   </div>
-                </div>
-            </div>
-        </div>
-        
-    </section>
-
-
-      <footer class="bg-primary text-center text-lg-start text-white">
-        <!-- Grid container -->
-        <div class="container p-4">
-          <!--Grid row-->
-          <div class="row my-4">
-            <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-    
-              <div class="rounded-circle bg-white shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto" style="width: 150px; height: 150px;">
-                <img src="assets/logopequeno.png" height="70" alt=""
-                     loading="lazy" />
-              </div>
-    
-              <p class="text-center">"Un lugar donde encontrar a tu mascota perdida o ayudar a reunir a otras mascotas con sus dueños</p>
-    
-              <ul class="list-unstyled d-flex flex-row justify-content-center">
-                <li>
-                  <a class="text-white px-2" href="#!">
-                    <i class="fab fa-facebook-square"></i>
-                  </a>
-                </li>
-                <li>
-                  <a class="text-white px-2" href="#!">
-                    <i class="fab fa-instagram"></i>
-                  </a>
-                </li>
-                <li>
-                  <a class="text-white ps-2" href="#!">
-                    <i class="fab fa-youtube"></i>
-                  </a>
-                </li>
-              </ul>
-    
-            </div>
-            <!--Grid column-->
-    
-            <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-              <h5 class="text-uppercase mb-4">Mascotas</h5>
-    
-              <ul class="list-unstyled">
-                <li class="mb-2">
-                  <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>¿Qué hacer si se perdió tu mascota</a>
-                </li>
-                <li class="mb-2">
-                  <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Mascotas encontradas</a>
-                </li>
-                <li class="mb-2">
-                  <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Mascotas perdidas</a>
-                </li>
-                <li class="mb-2">
-                  <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i></a>
-                </li>
-                <li class="mb-2">
-                  <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i></a>
-                </li>
-                <li class="mb-2">
-                  <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i></a>
-                </li>
-                <li class="mb-2">
-                  <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i></a>
-                </li>
-              </ul>
-            </div>
-            <!--Grid column-->
-    
-            <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-              <h5 class="text-uppercase mb-4">acaestoy</h5>
-    
-              <ul class="list-unstyled">
-                <li class="mb-2">
-                  <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Sobre acaestoy</a>
-                </li>
-                <li class="mb-2">
-                  <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>¿Cómo funciona?</a>
-                </li>
-                <li class="mb-2">
-                  <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i></a>
-                </li>
-                <li class="mb-2">
-                  <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i></a>
-                </li>
-                <li class="mb-2">
-                  <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i></a>
-                </li>
-                <li class="mb-2">
-                  <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i></a>
-                </li>
-              </ul>
-            </div>
-            <!--Grid column-->
-    
-            <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-              <h5 class="text-uppercase mb-4"></h5>
-    
-              <ul class="list-unstyled">
-                <li>
-                  <p><i class="fas fa-map-marker-alt pe-2"></i></p>
-                </li>
-                <li>
-                  <p><i class="fas fa-phone pe-2"></i></p>
-                </li>
-                <li>
-                  <p><i class="fas fa-envelope pe-2 mb-0"></i></p>
-                </li>
-              </ul>
-            </div>
-            <!--Grid column-->
-          </div>
-          <!--Grid row-->
-        </div>
-        <!-- Grid container -->
-    
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-          © 2023 Copyright. acaestoy ♥
-        </div>
-        <!-- Copyright -->
-      </footer>
-    
-    </div>
-    <!-- End of .container -->
-    </body>
-    <!-- Optional JavaScript -->
-    <!-- Popper.js first, then Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>  </body>
+    </main>
+    <footer>
+      <div class="logoHeader"><img src="assets/logopequeno.jpg" alt="logo Acaestoy"></div>
+    </footer>
+  </body>
 </html>
